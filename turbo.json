@@ -3,11 +3,18 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "env": ["NEXT_PRIVATE_LOCAL_WEBPACK"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
-    "lint": {}
+    "lint": {
+      "outputs": []
+    },
+    "type-check": {
+      "outputs": []
+    }
   }
 }
