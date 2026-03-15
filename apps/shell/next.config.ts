@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
             portfolio: `portfolio@${PORTFOLIO_URL}/_next/static/chunks/remoteEntry.js`,
           },
           shared: sharedDeps,
+          extraOptions: {},
         }),
       );
     }

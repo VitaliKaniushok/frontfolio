@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
             "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",
           },
           shared: sharedDeps,
+          extraOptions: {},
         }),
       );
     }
