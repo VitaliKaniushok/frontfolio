@@ -11,6 +11,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "format": "turbo run format",
+    "format:fix": "prettier --write .",
     "type-check": "turbo run type-check",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npx only-allow pnpm"
@@ -25,6 +27,7 @@
     "@types/react-dom": "catalog:",
     "eslint": "catalog:",
     "eslint-config-next": "catalog:",
+    "@eslint/eslintrc": "catalog:",
     "eslint-config-prettier": "catalog:",
     "only-allow": "^1.2.2",
     "prettier": "catalog:",

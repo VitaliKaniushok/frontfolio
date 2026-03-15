@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
