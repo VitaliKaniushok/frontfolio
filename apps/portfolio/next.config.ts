@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import NextFederationPlugin from "@module-federation/nextjs-mf";
-import { sharedDeps } from "config/federation/shared";
+import { sharedDeps } from "@frontfolio/config/federation/shared";
 
 process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true";
 
@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     if (!options.isServer) {
       config.plugins.push(
         new NextFederationPlugin({
-          name: "portfolio",
+          name: "frontfolio_portfolio",
           filename: "static/chunks/remoteEntry.js",
           exposes: {
             "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",

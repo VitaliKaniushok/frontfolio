@@ -74,8 +74,8 @@ This runs the development pipeline through Turborepo for workspace applications.
 ### 3. Run A Single Application
 
 ```bash
-pnpm --filter shell dev
-pnpm --filter portfolio dev
+pnpm --filter @frontfolio/shell dev
+pnpm --filter @frontfolio/portfolio dev
 ```
 
 ## Available Commands

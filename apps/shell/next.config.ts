@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import NextFederationPlugin from "@module-federation/nextjs-mf";
-import { sharedDeps } from "config/federation/shared";
+import { sharedDeps } from "@frontfolio/config/federation/shared";
 
 process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true";
 
@@ -13,10 +13,10 @@ const nextConfig: NextConfig = {
     if (!options.isServer) {
       config.plugins.push(
         new NextFederationPlugin({
-          name: "shell",
+          name: "frontfolio_shell",
           filename: "static/chunks/remoteEntry.js",
           remotes: {
-            portfolio: `portfolio@${PORTFOLIO_URL}/_next/static/chunks/remoteEntry.js`,
+            portfolio: `frontfolio_portfolio@${PORTFOLIO_URL}/_next/static/chunks/remoteEntry.js`,
           },
           shared: sharedDeps,
           extraOptions: {},
