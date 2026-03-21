@@ -9,7 +9,6 @@ build
 coverage
 .turbo
 .vscode
-.agents
-.windsurf
+.github
 skills-lock.json
 HELPFUL_COMMANDS.md

@@ -1,0 +1,12 @@
+{
+  "name": "@frontfolio/ui",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "author": "MSM Vitali",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
+}
