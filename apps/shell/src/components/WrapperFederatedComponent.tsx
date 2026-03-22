@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import type { ComponentType, JSX, ReactNode } from "react";
+import { getRemoteEntryUrl } from "../utils/federation";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -57,11 +58,46 @@ async function loadRemoteModule(
     return factory();
   } catch (error) {
     if (typeof window === "undefined") {
-      // SSR without server-side federation – render nothing; the
-      // client will load the real component during hydration.
-      return { default: (() => null) as unknown as ComponentType<any> };
+      // SSR without server-side federation – render fallback (loader) if provided.
+      // The client will load the real component during hydration.
+      // fallback is not available here, so we return a component rendering fallback if possible.
+      // We'll handle fallback in getOrCreateDynamic, so return a special marker.
+      const marker = () => null;
+      Object.defineProperty(marker, "__ssr_fallback__", { value: true });
+      return { default: marker as unknown as ComponentType<any> };
     }
+    console.error(`Error loading remote module "${scope}::${module}":`, error);
     throw error;
+  }
+}
+
+async function ensureRemoteLoaded(scope: string, url: string) {
+  //   console.error("====== typeof window ", typeof window);
+  console.log(window);
+  console.log(scope);
+  console.log(globalThis);
+  // @ts-expect-error – dynamic global set by Module Federation
+  console.log("globalThis.ff", globalThis.frontfolio_portfolio);
+
+  // @ts-expect-error – dynamic global set by Module Federation
+  console.log("globalThis.p", globalThis.portfolio);
+
+  // @ts-expect-error – dynamic global set by Module Federation
+  console.log("window.frontfolio_portfolio", window.frontfolio_portfolio);
+
+  // @ts-expect-error – dynamic global set by Module Federation
+  console.log("window.portfolio", window.portfolio);
+  // @ts-expect-error – dynamic global set by Module Federation
+  if (typeof window !== "undefined" && !window[scope]) {
+    await new Promise<void>((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = url;
+      script.type = "text/javascript";
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load ${url}`));
+      document.head.appendChild(script);
+    });
   }
 }
 
@@ -78,13 +114,30 @@ function getOrCreateDynamic<P>(
   const key = `${scope}::${module}::${ssr ? "ssr" : "csr"}`;
 
   if (!cache.has(key)) {
-    cache.set(
-      key,
-      dynamic<P>(() => loadRemoteModule(scope, module), {
+    // Custom loader to inject fallback during SSR hydration mismatch
+    const DynamicComponent = dynamic<P>(
+      async () => {
+        console.log(`Loading remote module: ${scope}::${module}`);
+
+        await ensureRemoteLoaded(scope, getRemoteEntryUrl(scope, false));
+
+        const mod = await loadRemoteModule(scope, module);
+        // If SSR fallback marker is returned, wrap with fallback if provided
+        console.log(mod);
+        if (mod.default && (mod.default as any).__ssr_fallback__ && fallback) {
+          // Return a component that renders fallback on server
+          return { default: () => <>{fallback}</> } as {
+            default: ComponentType<P>;
+          };
+        }
+        return mod;
+      },
+      {
         ssr,
         loading: fallback ? () => <>{fallback}</> : undefined,
-      }),
+      },
     );
+    cache.set(key, DynamicComponent);
   }
 
   return cache.get(key) as ComponentType<P>;

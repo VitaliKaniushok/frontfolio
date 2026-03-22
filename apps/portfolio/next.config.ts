@@ -8,19 +8,18 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   webpack(config: any, options: any) {
-    if (!options.isServer) {
-      config.plugins.push(
-        new NextFederationPlugin({
-          name: "frontfolio_portfolio",
-          filename: "static/chunks/remoteEntry.js",
-          exposes: {
-            "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",
-          },
-          shared: sharedDeps,
-          extraOptions: {},
-        }),
-      );
-    }
+    config.plugins.push(
+      new NextFederationPlugin({
+        name: "frontfolio_portfolio",
+        filename: "static/chunks/remoteEntry.js",
+        exposes: {
+          "./PortfolioPage": "./pages/index.tsx",
+          "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",
+        },
+        shared: sharedDeps,
+        extraOptions: {},
+      }),
+    );
 
     return config;
   },
