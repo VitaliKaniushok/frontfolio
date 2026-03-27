@@ -4,9 +4,7 @@ import { sharedDeps } from "@frontfolio/config/federation/shared";
 
 import { getRemoteEntryUrl } from "./src/utils/federation";
 
-process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true";
-
-const PORTFOLIO_URL = process.env.PORTFOLIO_URL ?? "http://localhost:3001";
+process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true"; // NOTE: flag means use webpack from my project's node_modules, not the built-in one in next.js
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,

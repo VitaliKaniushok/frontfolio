@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import NextFederationPlugin from "@module-federation/nextjs-mf";
 import { sharedDeps } from "@frontfolio/config/federation/shared";
 
-process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true";
+process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true"; // NOTE: flag means use webpack from my project's node_modules, not the built-in one in next.js
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,

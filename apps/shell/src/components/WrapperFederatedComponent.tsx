@@ -72,21 +72,6 @@ async function loadRemoteModule(
 }
 
 async function ensureRemoteLoaded(scope: string, url: string) {
-  //   console.error("====== typeof window ", typeof window);
-  console.log(window);
-  console.log(scope);
-  console.log(globalThis);
-  // @ts-expect-error – dynamic global set by Module Federation
-  console.log("globalThis.ff", globalThis.frontfolio_portfolio);
-
-  // @ts-expect-error – dynamic global set by Module Federation
-  console.log("globalThis.p", globalThis.portfolio);
-
-  // @ts-expect-error – dynamic global set by Module Federation
-  console.log("window.frontfolio_portfolio", window.frontfolio_portfolio);
-
-  // @ts-expect-error – dynamic global set by Module Federation
-  console.log("window.portfolio", window.portfolio);
   // @ts-expect-error – dynamic global set by Module Federation
   if (typeof window !== "undefined" && !window[scope]) {
     await new Promise<void>((resolve, reject) => {
@@ -117,13 +102,10 @@ function getOrCreateDynamic<P>(
     // Custom loader to inject fallback during SSR hydration mismatch
     const DynamicComponent = dynamic<P>(
       async () => {
-        console.log(`Loading remote module: ${scope}::${module}`);
-
         await ensureRemoteLoaded(scope, getRemoteEntryUrl(scope, false));
 
         const mod = await loadRemoteModule(scope, module);
         // If SSR fallback marker is returned, wrap with fallback if provided
-        console.log(mod);
         if (mod.default && (mod.default as any).__ssr_fallback__ && fallback) {
           // Return a component that renders fallback on server
           return { default: () => <>{fallback}</> } as {
@@ -147,17 +129,17 @@ function getOrCreateDynamic<P>(
 /*  Runtime wrapper – use when scope/module are determined at runtime   */
 /* ------------------------------------------------------------------ */
 
-export default function WrapperFederatedComponent<
-  P extends Record<string, unknown> = Record<string, unknown>,
->({
-  scope,
-  module,
-  fallback,
-  componentProps,
-}: WrapperFederatedComponentProps<P>) {
-  const Remote = getOrCreateDynamic<P>(scope, module, fallback);
-  return <Remote {...(componentProps as P & JSX.IntrinsicAttributes)} />;
-}
+// export default function WrapperFederatedComponent<
+//   P extends Record<string, unknown> = Record<string, unknown>,
+// >({
+//   scope,
+//   module,
+//   fallback,
+//   componentProps,
+// }: WrapperFederatedComponentProps<P>) {
+//   const Remote = getOrCreateDynamic<P>(scope, module, fallback);
+//   return <Remote {...(componentProps as P & JSX.IntrinsicAttributes)} />;
+// }
 
 /* ------------------------------------------------------------------ */
 /*  Static factory – preferred when the remote is known at build time  */
