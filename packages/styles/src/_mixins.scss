@@ -1,0 +1,28 @@
+@mixin glass-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+@mixin hover-glow {
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@mixin section-spacing {
+  padding: 6rem 0;
+
+  @media (min-width: 768px) {
+    padding: 8rem 0;
+  }
+}

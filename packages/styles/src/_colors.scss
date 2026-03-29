@@ -1,0 +1,22 @@
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
+  --card: hsl(0 0% 100%);
+  --border: hsl(240 5.9% 90%);
+  --radius: 0.75rem;
+
+  --primary: hsl(240 5.9% 10%);
+  --secondary: hsl(240 4.8% 95.9%);
+
+  --glow: hsl(217 91% 60%);
+  --gradient-start: hsl(217 91% 60%);
+  --gradient-end: hsl(265 83% 57%);
+}
+
+/* DARK MODE */
+.dark {
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 95%);
+  --card: hsl(240 6% 6%);
+  --border: hsl(240 4% 16%);
+}

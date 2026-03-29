@@ -1,0 +1,15 @@
+{
+  "name": "@frontfolio/styles",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "author": "MSM Vitali",
+  "license": "ISC",
+  "exports": {
+    ".": "./src/index.scss",
+    "./globals": "./src/globals.scss",
+    "./colors": "./src/_colors.scss",
+    "./mixins": "./src/_mixins.scss",
+    "./animations": "./src/_animations.scss"
+  }
+}
