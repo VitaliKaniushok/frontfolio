@@ -37,8 +37,10 @@
     "typescript-eslint": "catalog:"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.17",
-    "@nestjs/core": "^11.1.17",
-    "@nestjs/platform-express": "^11.1.17"
+    "@nestjs/common": "catalog:",
+    "@nestjs/core": "catalog:",
+    "@nestjs/platform-express": "catalog:",
+    "lucide-react": "catalog:",
+    "sass": "^1.98.0"
   }
 }
