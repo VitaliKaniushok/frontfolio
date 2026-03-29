@@ -1,11 +1,12 @@
 type SharedDep = {
   singleton: boolean;
   requiredVersion?: string | false;
+  eager?: boolean;
 };
 
 export const sharedDeps: Record<string, SharedDep> = {
-  react: { singleton: true, requiredVersion: false },
-  "react-dom": { singleton: true, requiredVersion: false },
+  react: { singleton: true, requiredVersion: false, eager: true },
+  "react-dom": { singleton: true, requiredVersion: false, eager: true },
   "next/router": { singleton: true, requiredVersion: false },
   "next/navigation": { singleton: true, requiredVersion: false },
   "next/link": { singleton: true, requiredVersion: false },

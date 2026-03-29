@@ -14,8 +14,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@ui/*": ["../../ui/*"],
-      "@utils/*": ["../../utils/*"]
+      "@frontfolio/config/*": ["../*"]
     }
   }
 }
