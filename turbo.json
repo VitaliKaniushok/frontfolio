@@ -8,6 +8,7 @@
       "env": ["NEXT_PRIVATE_LOCAL_WEBPACK"]
     },
     "dev": {
+      "dependsOn": ["^dev"],
       "cache": false,
       "persistent": true
     },
