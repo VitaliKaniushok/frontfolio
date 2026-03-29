@@ -1,0 +1,52 @@
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: infra/docker/base.Dockerfile
+      args:
+        APP_NAME: "@frontfolio/portfolio"
+        APP_DIR: "portfolio"
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: production
+
+  shell:
+    build:
+      context: .
+      dockerfile: infra/docker/base.Dockerfile
+      args:
+        APP_NAME: "@frontfolio/shell"
+        APP_DIR: "shell"
+        PORTFOLIO_URL: http://portfolio:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - portfolio
+
+  backend:
+    build:
+      context: .
+      dockerfile: infra/docker/backend.Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/frontfolio
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: frontfolio-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: frontfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
