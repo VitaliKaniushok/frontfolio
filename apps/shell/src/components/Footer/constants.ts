@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Facebook } from "lucide-react";
 
 export const footerLinks = [
   { icon: Github, href: "https://github.com/VitaliKaniushok", label: "GitHub" },
@@ -7,10 +7,10 @@ export const footerLinks = [
     href: "https://linkedin.com/in/vitali-kaniushok",
     label: "LinkedIn",
   },
-  {
-    icon: Twitter,
-    href: "https://twitter.com/vitali_kaniushok",
-    label: "Twitter",
-  },
   { icon: Mail, href: "mailto:vitalikaniushok@gmail.com", label: "Email" },
+  {
+    icon: Facebook,
+    href: "https://facebook.com/vitali.kaniushok",
+    label: "Facebook",
+  },
 ];

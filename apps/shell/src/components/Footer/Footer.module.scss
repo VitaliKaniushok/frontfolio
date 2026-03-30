@@ -33,14 +33,14 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   text-decoration: none;
-  color: var(--foreground);
+  color: hsl(var(--foreground));
 }
 
 .glow {
   background: linear-gradient(
     to right,
-    var(--gradient-start),
-    var(--gradient-end)
+    hsl(var(--gradient-start)),
+    hsl(var(--gradient-end))
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -48,7 +48,7 @@
 
 .copy {
   font-size: 0.875rem;
-  color: var(--muted-foreground);
+  color: hsl(var(--muted-foreground));
   margin-top: 0.25rem;
 }
 
@@ -67,12 +67,12 @@
   padding: 0.625rem;
   border-radius: 0.75rem;
 
-  color: var(--muted-foreground);
+  color: hsl(var(--muted-foreground));
   transition: all 0.2s ease;
 
   &:hover {
-    color: var(--foreground);
-    background: var(--secondary);
+    color: hsl(var(--foreground));
+    background: hsl(var(--secondary));
   }
 }
 

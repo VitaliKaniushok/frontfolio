@@ -10,5 +10,6 @@ coverage
 .turbo
 .vscode
 .github
+.pnpm-store
 skills-lock.json
 HELPFUL_COMMANDS.md

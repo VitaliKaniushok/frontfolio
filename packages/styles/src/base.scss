@@ -1,4 +1,4 @@
-@use "./colors.scss" as *;
+@use "colors";
 
 /* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
@@ -7,7 +7,7 @@
 
 * {
   box-sizing: border-box;
-  border-color: var(--border);
+  border-color: hsl(var(--border));
 }
 
 html {
@@ -15,9 +15,9 @@ html {
 }
 
 body {
-  margin: 0;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: "Inter", sans-serif;
-  background: var(--background);
-  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -9,9 +9,6 @@ catalogs:
     '@eslint/eslintrc':
       specifier: ^3.3.1
       version: 3.3.5
-    '@module-federation/nextjs-mf':
-      specifier: ^8.8.59
-      version: 8.8.62
     '@nestjs/common':
       specifier: ^11.1.17
       version: 11.1.17
@@ -39,18 +36,12 @@ catalogs:
     eslint-config-prettier:
       specifier: ^10.1.8
       version: 10.1.8
-    next:
-      specifier: ^15.3.3
-      version: 15.5.14
+    lucide-react:
+      specifier: ^0.462.0
+      version: 0.462.0
     prettier:
       specifier: ^3.8.1
       version: 3.8.1
-    react:
-      specifier: ^19.0.0
-      version: 19.2.4
-    react-dom:
-      specifier: ^19.0.0
-      version: 19.2.4
     turbo:
       specifier: ^2.8.17
       version: 2.8.21
@@ -75,7 +66,7 @@ importers:
         specifier: 'catalog:'
         version: 11.1.17(@nestjs/common@11.1.17(reflect-metadata@0.1.14)(rxjs@7.8.2))(@nestjs/core@11.1.17)
       lucide-react:
-        specifier: ^0.462.0
+        specifier: 'catalog:'
         version: 0.462.0(react@19.2.4)
       sass:
         specifier: ^1.98.0
@@ -144,7 +135,7 @@ importers:
     devDependencies:
       ts-node-dev:
         specifier: ^2.0.0
-        version: 2.0.0(@types/node@20.19.37)(typescript@5.9.3)
+        version: 2.0.0(@types/node@25.5.0)(typescript@5.9.3)
       typescript:
         specifier: ^5.2.2
         version: 5.9.3
@@ -180,7 +171,7 @@ importers:
         specifier: 'catalog:'
         version: 8.8.62(@rspack/core@1.7.10(@swc/helpers@0.5.15))(next@15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-jsx@5.1.6(react@19.2.4))(typescript@5.9.3)(webpack@5.105.4)
       lucide-react:
-        specifier: ^0.462.0
+        specifier: 'catalog:'
         version: 0.462.0(react@19.2.4)
       next:
         specifier: 'catalog:'
@@ -6079,7 +6070,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-node-dev@2.0.0(@types/node@20.19.37)(typescript@5.9.3):
+  ts-node-dev@2.0.0(@types/node@25.5.0)(typescript@5.9.3):
     dependencies:
       chokidar: 3.6.0
       dynamic-dedupe: 0.3.0
@@ -6089,7 +6080,7 @@ snapshots:
       rimraf: 2.7.1
       source-map-support: 0.5.21
       tree-kill: 1.2.2
-      ts-node: 10.9.2(@types/node@20.19.37)(typescript@5.9.3)
+      ts-node: 10.9.2(@types/node@25.5.0)(typescript@5.9.3)
       tsconfig: 7.0.0
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -6097,14 +6088,14 @@ snapshots:
       - '@swc/wasm'
       - '@types/node'
 
-  ts-node@10.9.2(@types/node@20.19.37)(typescript@5.9.3):
+  ts-node@10.9.2(@types/node@25.5.0)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.12
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.19.37
+      '@types/node': 25.5.0
       acorn: 8.16.0
       acorn-walk: 8.3.5
       arg: 4.1.3
