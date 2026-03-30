@@ -32,7 +32,6 @@ class FederatedDocument extends Document {
             name="description"
             content="Frontfolio – Vitali's modern portfolio platform."
           />
-          <meta name="theme-color" content="#ffffff" />
           <meta property="og:title" content="Frontfolio" />
           <meta
             property="og:description"
@@ -42,6 +41,16 @@ class FederatedDocument extends Document {
           <meta property="og:image" content="/favicon.ico" />
           <link rel="icon" href="/favicon.ico" />
           {chunks ? <FlushedChunks chunks={chunks} /> : null}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  const theme = localStorage.getItem('theme') || 'dark';
+                  document.documentElement.setAttribute('data-theme', theme);
+                })();
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />

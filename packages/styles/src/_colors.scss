@@ -39,7 +39,7 @@
 }
 
 /* DARK MODE */
-.dark {
+[data-theme="dark"] {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 95%;
   --card: 240 6% 6%;
