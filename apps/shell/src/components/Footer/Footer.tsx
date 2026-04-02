@@ -1,4 +1,7 @@
 import { footerLinks } from "./constants";
+
+import { Logo } from "../Logo";
+
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
@@ -6,15 +9,14 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <a href="#" className={styles.logo}>
-            dev<span className={styles.glow}>.folio</span>
-          </a>
+          <Logo />
 
           <p className={styles.copy}>
             © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
 
+        {/* Social Links */}
         <div className={styles.socials}>
           {footerLinks.map(({ icon: Icon, href, label }) => (
             <a

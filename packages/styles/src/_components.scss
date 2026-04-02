@@ -1,8 +1,21 @@
-@use "variables";
+@use "colors";
+
+.container-narrow {
+  max-width: 72rem; // max-w-6xl
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 .glass-card {
   background-color: hsla(var(--card), 0.5);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
   border: 1px solid hsla(var(--border), 0.5);
   border-radius: 1rem; // 16px (rounded-2xl)
 }
@@ -37,19 +50,6 @@
   @media (min-width: 768px) {
     padding-top: 8rem; // py-32
     padding-bottom: 8rem;
-  }
-}
-
-.container-narrow {
-  max-width: 72rem; // max-w-6xl
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-
-  @media (min-width: 768px) {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 }
 
