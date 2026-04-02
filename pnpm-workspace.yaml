@@ -26,6 +26,8 @@ catalog:
   "@nestjs/core": "^11.1.17"
   "@nestjs/platform-express": "11"
   "lucide-react": "^0.462.0"
+  "framer-motion": "^12.38.0"
+  "clsx": "^2.1.1"
 
 allowBuilds:
   "@module-federation/nextjs-mf": true

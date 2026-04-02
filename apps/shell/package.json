@@ -15,6 +15,8 @@
   "dependencies": {
     "@frontfolio/config": "workspace:*",
     "@module-federation/nextjs-mf": "catalog:",
+    "clsx": "catalog:",
+    "framer-motion": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "react": "catalog:",

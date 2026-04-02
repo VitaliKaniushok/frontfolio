@@ -40,7 +40,6 @@
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
     "@nestjs/platform-express": "catalog:",
-    "lucide-react": "catalog:",
     "sass": "^1.98.0"
   }
 }
