@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   webpack(config: any, options: any) {
+    const shared = options.isServer
+      ? Object.fromEntries(
+          Object.entries(sharedDeps).filter(
+            ([k]) => k !== "react" && k !== "react-dom",
+          ),
+        )
+      : sharedDeps;
+
     config.plugins.push(
       new NextFederationPlugin({
         name: "frontfolio_portfolio",
@@ -17,7 +25,7 @@ const nextConfig: NextConfig = {
           "./PortfolioPage": "./pages/index.tsx",
           "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",
         },
-        shared: sharedDeps,
+        shared,
         extraOptions: {},
       }),
     );

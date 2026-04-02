@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
   devIndicators: false,
 
   webpack(config: any, options: any) {
+    const shared = options.isServer
+      ? Object.fromEntries(
+          Object.entries(sharedDeps).filter(
+            ([k]) => k !== "react" && k !== "react-dom",
+          ),
+        )
+      : sharedDeps;
+
     config.plugins.push(
       new NextFederationPlugin({
         name: "frontfolio_shell",
@@ -19,7 +27,7 @@ const nextConfig: NextConfig = {
         remotes: {
           portfolio: `frontfolio_portfolio@${getRemoteEntryUrl("frontfolio_portfolio", options.isServer)}`,
         },
-        shared: sharedDeps,
+        shared,
         extraOptions: {},
       }),
     );
