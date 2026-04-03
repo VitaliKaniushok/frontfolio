@@ -10,6 +10,7 @@ process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true"; // NOTE: flag means use webpack
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
+  transpilePackages: ["@frontfolio/constants"],
 
   webpack(config: any, options: any) {
     const shared = options.isServer

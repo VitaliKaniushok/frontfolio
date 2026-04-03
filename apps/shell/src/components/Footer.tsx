@@ -1,4 +1,4 @@
-import { footerLinks } from "../constants";
+import { SOCIAL_LINKS } from "@frontfolio/constants";
 
 import { Logo } from "./Logo";
 
@@ -18,7 +18,7 @@ const Footer = () => {
 
         {/* Social Links */}
         <div className={styles.socials}>
-          {footerLinks.map(({ icon: Icon, href, label }) => (
+          {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
