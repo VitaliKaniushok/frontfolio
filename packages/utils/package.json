@@ -1,7 +1,6 @@
 {
   "name": "@frontfolio/utils",
   "version": "1.0.0",
-  "main": "index.js",
   "private": true,
   "author": "MSM Vitali",
   "license": "ISC"

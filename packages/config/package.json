@@ -1,8 +1,6 @@
 {
   "name": "@frontfolio/config",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "tsconfig": "./typescript/tsconfig.base.json",
   "exports": {
     "./federation/shared": "./federation/shared.ts",
@@ -10,10 +8,6 @@
     "./prettier": "./prettier/index.mjs",
     "./typescript/base": "./typescript/tsconfig.base.json"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "MSM Vitali",
   "license": "ISC",
   "peerDependencies": {
