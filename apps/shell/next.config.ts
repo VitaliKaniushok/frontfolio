@@ -29,7 +29,10 @@ const nextConfig: NextConfig = {
           portfolio: `frontfolio_portfolio@${getRemoteEntryUrl("frontfolio_portfolio", options.isServer)}`,
         },
         shared,
-        extraOptions: {},
+        extraOptions: {
+          enableImageLoaderFix: true,
+          enableUrlLoaderFix: true,
+        },
       }),
     );
 
