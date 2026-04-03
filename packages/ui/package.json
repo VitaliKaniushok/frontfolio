@@ -4,6 +4,10 @@
   "private": true,
   "author": "MSM Vitali",
   "license": "ISC",
+  "tsconfig": "./typescript/tsconfig.base.json",
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "peerDependencies": {
     "react": "catalog:",
     "react-dom": "catalog:"

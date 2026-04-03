@@ -1,4 +1,3 @@
-@use "@styles/mixins" as mixins;
 @use "@styles/functions" as functions;
 
 .logo {
@@ -7,8 +6,4 @@
   letter-spacing: -0.02em;
   text-decoration: none;
   color: hsl(var(--foreground));
-
-  &__glow {
-    @include mixins.glow-text;
-  }
 }

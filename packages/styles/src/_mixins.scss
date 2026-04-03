@@ -4,6 +4,20 @@
   padding: 0 1.5rem;
 }
 
+@mixin animate(
+  $name,
+  $duration: 3s,
+  $timing: ease-in-out,
+  $iteration: infinite,
+  $delay: 0s
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-iteration-count: $iteration;
+  animation-delay: $delay;
+}
+
 @mixin container-narrow {
   max-width: 72rem;
   margin-left: auto;
@@ -33,27 +47,6 @@
     box-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 0 20px hsla(var(--glow), 0.05);
-  }
-}
-
-@mixin glow-text {
-  background: linear-gradient(
-    to right,
-    hsl(var(--gradient-start)),
-    hsl(var(--gradient-end))
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@mixin section-spacing {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-
-  @media (min-width: 768px) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
   }
 }
 

@@ -15,6 +15,7 @@
   "dependencies": {
     "@frontfolio/config": "workspace:*",
     "@frontfolio/constants": "workspace:*",
+    "@frontfolio/ui": "workspace:*",
     "@module-federation/nextjs-mf": "catalog:",
     "clsx": "catalog:",
     "framer-motion": "catalog:",

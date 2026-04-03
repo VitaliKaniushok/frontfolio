@@ -1,0 +1,10 @@
+.glow-text {
+  background: linear-gradient(
+    to right,
+    hsl(var(--gradient-start)),
+    hsl(var(--gradient-end))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
