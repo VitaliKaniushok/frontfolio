@@ -17,11 +17,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function HomePage() {
   return (
     <>
-      <h1>Frontfolio Shell</h1>
-      <p>
-        This is the host application. The portfolio page is rendered below via
-        module federation:
-      </p>
       <PortfolioPage />
     </>
   );

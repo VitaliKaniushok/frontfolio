@@ -1,24 +1,7 @@
-import { Github, Linkedin, Mail, Facebook } from "lucide-react";
-
 export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Tech Stack", href: "#techstack" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "News", href: "#news" },
-];
-
-export const footerLinks = [
-  { icon: Github, href: "https://github.com/VitaliKaniushok", label: "GitHub" },
-  {
-    icon: Linkedin,
-    href: "https://linkedin.com/in/vitali-kaniushok",
-    label: "LinkedIn",
-  },
-  { icon: Mail, href: "mailto:vitalikaniushok@gmail.com", label: "Email" },
-  {
-    icon: Facebook,
-    href: "https://facebook.com/vitali.kaniushok",
-    label: "Facebook",
-  },
 ];

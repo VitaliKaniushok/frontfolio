@@ -1,4 +1,4 @@
-import { Footer, Navbar, MainContainer } from "../components";
+import { Footer, Navbar } from "../components";
 import styles from "./MainLayout.module.scss";
 
 type MainLayoutProps = {
@@ -9,7 +9,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className={styles.layout}>
       <Navbar />
-      <MainContainer>{children}</MainContainer>
+      <main>{children}</main>
       <Footer />
     </div>
   );

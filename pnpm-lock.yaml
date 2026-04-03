@@ -30,6 +30,9 @@ catalogs:
     '@types/react-dom':
       specifier: ^19
       version: 19.2.3
+    clsx:
+      specifier: ^2.1.1
+      version: 2.1.1
     eslint:
       specifier: ^10.0.3
       version: 10.1.0
@@ -157,6 +160,9 @@ importers:
       '@frontfolio/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@frontfolio/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@module-federation/nextjs-mf':
         specifier: 'catalog:'
         version: 8.8.62(@rspack/core@1.7.10(@swc/helpers@0.5.15))(next@15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-jsx@5.1.6(react@19.2.4))(typescript@5.9.3)(webpack@5.105.4)
@@ -179,18 +185,18 @@ importers:
       '@frontfolio/config':
         specifier: workspace:*
         version: link:../../packages/config
+      '@frontfolio/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@module-federation/nextjs-mf':
         specifier: 'catalog:'
         version: 8.8.62(@rspack/core@1.7.10(@swc/helpers@0.5.15))(next@15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-jsx@5.1.6(react@19.2.4))(typescript@5.9.3)(webpack@5.105.4)
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       framer-motion:
         specifier: 'catalog:'
         version: 12.38.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      lucide-react:
-        specifier: 'catalog:'
-        version: 0.462.0(react@19.2.4)
       next:
         specifier: 'catalog:'
         version: 15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0)
@@ -228,6 +234,12 @@ importers:
       typescript-eslint:
         specifier: 'catalog:'
         version: 8.57.2(eslint@10.1.0(jiti@2.4.2))(typescript@5.9.3)
+
+  packages/constants:
+    dependencies:
+      lucide-react:
+        specifier: 'catalog:'
+        version: 0.462.0(react@19.2.4)
 
   packages/styles: {}
 
