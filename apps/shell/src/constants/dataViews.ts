@@ -1,5 +1,13 @@
 import { Github, Linkedin, Mail, Facebook } from "lucide-react";
 
+export const navLinks = [
+  { label: "Experience", href: "#experience" },
+  { label: "Tech Stack", href: "#techstack" },
+  { label: "Projects", href: "#projects" },
+  { label: "Education", href: "#education" },
+  { label: "News", href: "#news" },
+];
+
 export const footerLinks = [
   { icon: Github, href: "https://github.com/VitaliKaniushok", label: "GitHub" },
   {

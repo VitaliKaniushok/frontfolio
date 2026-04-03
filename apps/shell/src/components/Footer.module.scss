@@ -1,8 +1,9 @@
 @use "@styles/mixins" as mixins;
+@use "@styles/functions" as functions;
 
 .footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 3rem 0;
+  border-top: 1px solid hsl(var(--border) / 0.5);
+  padding: functions.rem(48px) 0;
 }
 
 /* container-narrow replacement */
@@ -13,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: functions.rem(24px);
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -29,16 +30,16 @@
 }
 
 .copy {
-  font-size: 0.875rem;
+  font-size: functions.rem(14px);
   color: hsl(var(--muted-foreground));
-  margin-top: 0.25rem;
+  margin-top: functions.rem(4px);
 }
 
 /* socials */
 .socials {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: functions.rem(16px);
 }
 
 .iconLink {
@@ -46,8 +47,8 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0.625rem;
-  border-radius: 0.75rem;
+  padding: functions.rem(10px);
+  border-radius: functions.rem(12px);
 
   color: hsl(var(--muted-foreground));
   transition: all 0.2s ease;

@@ -1,4 +1,4 @@
-import { baseUrls } from "../constants/base-urls";
+import { baseUrls } from "../constants";
 
 export function getRemoteEntryUrl(scope: string, isServer: boolean) {
   const base = baseUrls[scope];

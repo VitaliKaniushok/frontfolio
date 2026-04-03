@@ -1,9 +1,11 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
-import { navLinks } from "./constants";
+import { navLinks } from "../constants";
 
-import { Logo } from "../Logo";
+import { Logo } from "./Logo";
 
 import clsx from "clsx";
 
@@ -13,7 +15,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
+  useEffect(function manageHandleScrollEvent() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);

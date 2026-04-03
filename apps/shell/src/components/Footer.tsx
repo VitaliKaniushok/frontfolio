@@ -1,6 +1,6 @@
-import { footerLinks } from "./constants";
+import { footerLinks } from "../constants";
 
-import { Logo } from "../Logo";
+import { Logo } from "./Logo";
 
 import styles from "./Footer.module.scss";
 
