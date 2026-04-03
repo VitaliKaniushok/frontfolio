@@ -10,7 +10,6 @@
     "./base": "./src/base.scss",
     "./colors": "./src/_colors.scss",
     "./mixins": "./src/_mixins.scss",
-    "./animations": "./src/_animations.scss",
-    "./components": "./src/_components.scss"
+    "./animations": "./src/_animations.scss"
   }
 }

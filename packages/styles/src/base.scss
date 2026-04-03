@@ -1,9 +1,14 @@
-@use "colors";
+@use "theme-colors";
+@use "design-tokens" as tokens;
 
 /* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 /* ================= RESET ================= */
+
+:root {
+  font-size: #{tokens.$base-font-size};
+}
 
 * {
   box-sizing: border-box;
