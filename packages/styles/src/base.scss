@@ -13,10 +13,13 @@
 * {
   box-sizing: border-box;
   border-color: hsl(var(--border));
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -25,4 +28,13 @@ body {
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+/*  Remove horizontal scrolling in some mobile browsers */
+body,
+html {
+  overflow-x: hidden;
 }

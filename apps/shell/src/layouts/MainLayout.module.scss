@@ -1,0 +1,9 @@
+@use "@styles/design-tokens" as tokens;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  padding-top: tokens.$navBarHeight; /* Height of the navbar */
+}
