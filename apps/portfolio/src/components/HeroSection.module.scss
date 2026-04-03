@@ -8,6 +8,8 @@
   align-items: center;
   overflow: hidden;
 
+  padding: 6rem 0 3rem;
+
   // Background Elements
   &__background {
     position: absolute;
@@ -62,8 +64,6 @@
     gap: 3rem;
 
     align-items: center;
-
-    padding-top: 6rem;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(5, minmax(0, 1fr));
