@@ -7,6 +7,7 @@ process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true"; // NOTE: flag means use webpack
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["@frontfolio/constants"],
 
   webpack(config: any, options: any) {
     const shared = options.isServer
@@ -23,10 +24,12 @@ const nextConfig: NextConfig = {
         filename: "static/chunks/remoteEntry.js",
         exposes: {
           "./PortfolioPage": "./pages/index.tsx",
-          "./PortfolioWidget": "./src/components/PortfolioWidget.tsx",
         },
         shared,
-        extraOptions: {},
+        extraOptions: {
+          enableImageLoaderFix: true,
+          enableUrlLoaderFix: true,
+        },
       }),
     );
 

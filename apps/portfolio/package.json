@@ -15,6 +15,7 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "catalog:",
     "@frontfolio/config": "workspace:*",
+    "@frontfolio/constants": "workspace:*",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
