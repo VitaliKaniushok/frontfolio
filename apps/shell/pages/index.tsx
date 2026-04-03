@@ -1,6 +1,8 @@
 import type { GetServerSideProps } from "next";
 import { createFederatedComponent } from "../src/components";
 
+import { MainLayout } from "../src/layouts/MainLayout";
+
 const PortfolioPage = createFederatedComponent({
   scope: "frontfolio_portfolio",
   module: "./PortfolioPage",
@@ -24,3 +26,7 @@ export default function HomePage() {
     </>
   );
 }
+
+HomePage.getLayout = function getLayout(page: React.ReactElement) {
+  return <MainLayout>{page}</MainLayout>;
+};

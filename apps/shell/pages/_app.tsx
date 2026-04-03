@@ -1,17 +1,18 @@
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-
-import { Footer, Navbar } from "../src/components";
 
 import "../src/styles/global.scss";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Navbar />
-      <main className="main-content">
-        <Component {...pageProps} />
-      </main>
-      <Footer />
-    </>
-  );
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return getLayout(<Component {...pageProps} />);
 }
