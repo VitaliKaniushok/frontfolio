@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
+
 import { navLinks } from "../constants";
 
 import { Logo } from "./Logo";
+import { ContainerNarrow } from "@frontfolio/ui";
 
 import clsx from "clsx";
 
@@ -30,7 +32,7 @@ const Navbar = () => {
         [styles["navbar--scrolled"]]: scrolled,
       })}
     >
-      <div className={`container-narrow ${styles.navbar__container}`}>
+      <ContainerNarrow className={styles.navbar__container}>
         <Logo />
 
         {/* Desktop Navigation */}
@@ -60,7 +62,7 @@ const Navbar = () => {
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </div>
+      </ContainerNarrow>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -71,7 +73,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className={styles["navbar__mobile-menu"]}
           >
-            <div className={`container-narrow ${styles["mobile-content"]}`}>
+            <ContainerNarrow className={styles["mobile-content"]}>
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -82,7 +84,7 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-            </div>
+            </ContainerNarrow>
           </motion.div>
         )}
       </AnimatePresence>

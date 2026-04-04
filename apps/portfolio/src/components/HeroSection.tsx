@@ -1,11 +1,13 @@
 // import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-// import { Button } from "@/components/ui/button";
+
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
 
 import { GlowText } from "@frontfolio/ui";
+import { ContainerNarrow } from "@frontfolio/ui";
+// import { Button } from "@/components/ui/button";
 
 import styles from "./HeroSection.module.scss";
 
@@ -32,7 +34,7 @@ const HeroSection = () => {
         <div className={styles["hero__grid-overlay"]} />
       </div>
 
-      <div className={styles.hero__container}>
+      <ContainerNarrow className={styles.hero__container}>
         <div className={styles.hero__content}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -137,7 +139,7 @@ const HeroSection = () => {
             )} */}
           </div>
         </motion.div>
-      </div>
+      </ContainerNarrow>
     </section>
   );
 };

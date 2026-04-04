@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 
 import { STATS } from "../constants/";
 
+import { ContainerNarrow } from "@frontfolio/ui";
+
 import styles from "./StatsBar.module.scss";
 
 const StatsBar = () => {
   return (
     <section className={styles.statsBar}>
-      <div className={styles.container}>
+      <ContainerNarrow className={styles.container}>
         <div className={styles.grid}>
           {STATS.map((stat, i) => (
             <motion.div
@@ -24,7 +26,7 @@ const StatsBar = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </ContainerNarrow>
     </section>
   );
 };

@@ -1,4 +1,3 @@
-@use "@styles/mixins" as mixins;
 @use "@styles/design-tokens" as tokens;
 @use "@styles/functions" as functions;
 
@@ -7,8 +6,6 @@ $bg-blur: saturate(180%) blur(20px);
 $transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 .navbar {
-  @include mixins.container-narrow;
-
   position: fixed;
   top: 0;
   left: 0;

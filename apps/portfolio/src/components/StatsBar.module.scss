@@ -8,8 +8,6 @@
 }
 
 .container {
-  @include mixin.container-narrow;
-
   padding: 48px 0;
 }
 

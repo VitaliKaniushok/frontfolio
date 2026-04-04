@@ -1,13 +1,14 @@
 import { SOCIAL_LINKS } from "@frontfolio/constants";
 
 import { Logo } from "./Logo";
+import { ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <ContainerNarrow className={styles.container}>
         <div className={styles.brand}>
           <Logo />
 
@@ -31,7 +32,7 @@ const Footer = () => {
             </a>
           ))}
         </div>
-      </div>
+      </ContainerNarrow>
     </footer>
   );
 };
