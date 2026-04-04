@@ -17,6 +17,7 @@
     "@frontfolio/config": "workspace:*",
     "@frontfolio/constants": "workspace:*",
     "@frontfolio/ui": "workspace:*",
+    "clsx": "catalog:",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"

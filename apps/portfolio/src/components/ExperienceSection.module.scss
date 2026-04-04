@@ -1,0 +1,167 @@
+@use "@styles/functions" as function;
+
+.header {
+  margin-bottom: 4rem;
+
+  .label {
+    color: hsl(var(--glow));
+    font-size: function.rem(14px);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: function.rem(32px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+
+    @media (min-width: 768px) {
+      font-size: function.rem(36px);
+    }
+  }
+}
+
+.timeline {
+  position: relative;
+
+  .line {
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: hsl(var(--border));
+  }
+}
+
+.item {
+  position: relative;
+  padding-left: 48px;
+
+  .dot {
+    position: absolute;
+    left: 12px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--muted-foreground-30));
+    background-color: hsl(var(--background));
+    transition: all 0.3s ease;
+    z-index: 1;
+
+    &.active {
+      background-color: hsl(var(--glow));
+      border-color: hsl(var(--gradient-start));
+    }
+  }
+}
+
+.card {
+  padding: 24px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+
+  &.active {
+    border-color: rgba(var(--glow-start-rgb), 0.2);
+  }
+
+  .topContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .companyRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: function.rem(14px);
+    color: hsl(var(--muted-foreground));
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .role {
+    font-size: function.rem(18px);
+    font-weight: 600;
+  }
+
+  .dates {
+    font-size: function.rem(14px);
+    color: hsl(var(--muted-foreground));
+    margin-top: 4px;
+  }
+
+  .techList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+  color: hsl(var(--muted-foreground));
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 4px;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.details {
+  overflow: hidden;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid hsl(var(--border) / 5);
+
+  .achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      font-size: function.rem(14px);
+      color: hsl(var(--muted-foreground));
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      .bullet {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: hsl(var(--glow));
+        margin-top: 8px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .architecture {
+    padding: 12px;
+    font-size: function.rem(12px);
+    font-family: monospace;
+    color: hsl(var(--muted-foreground));
+
+    .archPrefix {
+      color: hsl(var(--glow));
+    }
+  }
+}

@@ -169,6 +169,9 @@ importers:
       '@module-federation/nextjs-mf':
         specifier: 'catalog:'
         version: 8.8.62(@rspack/core@1.7.10(@swc/helpers@0.5.15))(next@15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-jsx@5.1.6(react@19.2.4))(typescript@5.9.3)(webpack@5.105.4)
+      clsx:
+        specifier: 'catalog:'
+        version: 2.1.1
       next:
         specifier: 'catalog:'
         version: 15.5.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.98.0)
