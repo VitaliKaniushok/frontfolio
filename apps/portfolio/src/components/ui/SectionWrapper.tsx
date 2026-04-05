@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, type ReactNode } from "react";
 import clsx from "clsx";
 
 import style from "./SectionWrapper.module.scss";
@@ -6,7 +6,7 @@ import style from "./SectionWrapper.module.scss";
 interface SectionWrapperProps {
   className?: string;
   id: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const SectionWrapper: FC<SectionWrapperProps> = ({

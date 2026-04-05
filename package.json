@@ -40,6 +40,6 @@
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
     "@nestjs/platform-express": "catalog:",
-    "sass": "^1.98.0"
+    "sass": "catalog:"
   }
 }
