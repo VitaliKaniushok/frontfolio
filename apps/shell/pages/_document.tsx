@@ -26,6 +26,7 @@ class FederatedDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <title>Devfolio</title>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta
