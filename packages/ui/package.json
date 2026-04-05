@@ -10,6 +10,7 @@
   },
   "peerDependencies": {
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "@radix-ui/react-slot": "catalog:"
   }
 }
