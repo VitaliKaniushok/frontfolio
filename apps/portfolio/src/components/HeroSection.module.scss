@@ -105,23 +105,11 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
-}
 
-.btn {
-  border-radius: 0.75rem !important;
-
-  &-icon {
+  &__btn-icon {
     margin-left: 0.25rem;
     width: 1rem;
     height: 1rem;
-  }
-
-  &--primary {
-    background-color: hsl(var(--foreground)) !important;
-    color: hsl(var(--background)) !important;
-    &:hover {
-      opacity: 0.9;
-    }
   }
 }
 

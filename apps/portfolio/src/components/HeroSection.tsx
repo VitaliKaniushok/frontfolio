@@ -1,13 +1,11 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
 
-import { GlowText } from "@frontfolio/ui";
-import { ContainerNarrow } from "@frontfolio/ui";
-// import { Button } from "@/components/ui/button";
+import { GlowText, Button, ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./HeroSection.module.scss";
 
@@ -15,15 +13,14 @@ import { QUOTES } from "../constants";
 import { SOCIAL_LINKS } from "@frontfolio/constants";
 
 const HeroSection = () => {
-  const quoteIndex = 0;
-  // const [quoteIndex, setQuoteIndex] = useState(0);
+  const [quoteIndex, setQuoteIndex] = useState(0);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
-  //   }, 5000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className={styles.hero}>
@@ -37,7 +34,7 @@ const HeroSection = () => {
       <ContainerNarrow className={styles.container}>
         <div className={styles.content}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
@@ -51,7 +48,7 @@ const HeroSection = () => {
 
           <motion.p
             className={styles.description}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
@@ -61,29 +58,23 @@ const HeroSection = () => {
 
           <motion.div
             className={styles.actions}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            {/* <Button asChild size="lg" className={styles.btn + ' ' + styles.btn_primary}>
+            <Button asChild size="lg">
               <a href="#experience">
-                View Experience <ArrowDown className={styles.btn_icon} />
+                View Experience{" "}
+                <ArrowDown className={styles["actions__btn-icon"]} />
               </a>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className={styles.btn + ' ' + styles.btn_outline}
-            >
+            <Button asChild variant="outline" size="lg">
               <a href="#projects">View Projects</a>
-            </Button> */}
+            </Button>
           </motion.div>
 
           <motion.div
             className={styles.socials}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             {SOCIAL_LINKS.map(({ icon: Icon, href }) => (
@@ -103,7 +94,7 @@ const HeroSection = () => {
             <AnimatePresence mode="wait">
               <motion.p
                 key={quoteIndex}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
@@ -118,7 +109,7 @@ const HeroSection = () => {
         {/* Photo Section */}
         <motion.div
           className={styles.visual}
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
