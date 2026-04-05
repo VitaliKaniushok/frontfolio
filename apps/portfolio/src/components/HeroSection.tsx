@@ -1,6 +1,6 @@
 // import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+// import { ArrowDown } from "lucide-react";
 
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
@@ -28,21 +28,21 @@ const HeroSection = () => {
   return (
     <section className={styles.hero}>
       {/* Background Layers */}
-      <div className={styles.hero__background}>
-        <div className={`${styles.hero__blob} ${styles["hero__blob--1"]}`} />
-        <div className={`${styles.hero__blob} ${styles["hero__blob--2"]}`} />
-        <div className={styles["hero__grid-overlay"]} />
+      <div className={styles.background}>
+        <div className={`${styles.blob} ${styles["blob--1"]}`} />
+        <div className={`${styles.blob} ${styles["blob--2"]}`} />
+        <div className={styles["grid-overlay"]} />
       </div>
 
-      <ContainerNarrow className={styles.hero__container}>
-        <div className={styles.hero__content}>
+      <ContainerNarrow className={styles.container}>
+        <div className={styles.content}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className={styles.hero__label}>Frontend Developer</p>
-            <h1 className={styles.hero__title}>
+            <p className={styles.label}>Frontend Developer</p>
+            <h1 className={styles.title}>
               Building <GlowText>scalable</GlowText>
               <br />
               digital systems.
@@ -50,7 +50,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.p
-            className={styles.hero__description}
+            className={styles.description}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -60,28 +60,28 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className={styles.hero__actions}
+            className={styles.actions}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            {/* <Button asChild size="lg" className={styles.hero__btn + ' ' + styles.hero__btn_primary}>
+            {/* <Button asChild size="lg" className={styles.btn + ' ' + styles.btn_primary}>
               <a href="#experience">
-                View Experience <ArrowDown className={styles.hero__btn_icon} />
+                View Experience <ArrowDown className={styles.btn_icon} />
               </a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className={styles.hero__btn + ' ' + styles.hero__btn_outline}
+              className={styles.btn + ' ' + styles.btn_outline}
             >
               <a href="#projects">View Projects</a>
             </Button> */}
           </motion.div>
 
           <motion.div
-            className={styles.hero__socials}
+            className={styles.socials}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
@@ -92,14 +92,14 @@ const HeroSection = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles["hero__social-link"]}
+                className={styles["social-link"]}
               >
                 <Icon size={20} />
               </a>
             ))}
           </motion.div>
 
-          <div className={styles["hero__quote-wrapper"]}>
+          <div className={styles["quote-wrapper"]}>
             <AnimatePresence mode="wait">
               <motion.p
                 key={quoteIndex}
@@ -107,7 +107,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
-                className={styles.hero__quote}
+                className={styles.quote}
               >
                 {QUOTES[quoteIndex]}
               </motion.p>
@@ -117,25 +117,25 @@ const HeroSection = () => {
 
         {/* Photo Section */}
         <motion.div
-          className={styles.hero__visual}
+          className={styles.visual}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className={styles["hero__image-wrapper"]}>
-            <div className={styles["hero__image-glow"]} />
-            <div className={styles["hero__image-container"]}>
+          <div className={styles["image-wrapper"]}>
+            <div className={styles["image-glow"]} />
+            <div className={styles["image-container"]}>
               <Image
                 src={profilePhoto}
                 alt="Developer portrait"
                 fill
-                className={styles.hero__image}
+                className={styles.image}
                 priority
                 unoptimized
               />
             </div>
             {/* {engineeringMode && (
-              <div className={styles.hero__debug_badge}>PID: 1337 | CPU: 2.1%</div>
+              <div className={styles.debug_badge}>PID: 1337 | CPU: 2.1%</div>
             )} */}
           </div>
         </motion.div>

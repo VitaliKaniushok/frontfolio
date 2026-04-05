@@ -32,21 +32,21 @@ const Navbar = () => {
         [styles["navbar--scrolled"]]: scrolled,
       })}
     >
-      <ContainerNarrow className={styles.navbar__container}>
+      <ContainerNarrow className={styles.container}>
         <Logo />
 
         {/* Desktop Navigation */}
-        <div className={styles["navbar__desktop-nav"]}>
+        <div className={styles["desktop-nav"]}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className={styles.navbar__link}>
+            <a key={link.href} href={link.href} className={styles.link}>
               {link.label}
             </a>
           ))}
 
           {/* <button
             onClick={onToggleEngineering}
-            className={`${styles["navbar__eng-btn"]} ${
-              engineeringMode ? styles["navbar__eng-btn--active"] : ""
+            className={`${styles["eng-btn"]} ${
+              engineeringMode ? styles["eng-btn--active"] : ""
             }`}
           >
             <Terminal size={14} />
@@ -56,7 +56,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className={styles["navbar__mobile-toggle"]}
+          className={styles["mobile-toggle"]}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -71,7 +71,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={styles["navbar__mobile-menu"]}
+            className={styles["mobile-menu"]}
           >
             <ContainerNarrow className={styles["mobile-content"]}>
               {navLinks.map((link) => (
@@ -79,7 +79,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={styles.navbar__link}
+                  className={styles.link}
                 >
                   {link.label}
                 </a>
