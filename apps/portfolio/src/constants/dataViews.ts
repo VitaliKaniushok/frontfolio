@@ -199,3 +199,24 @@ export const TECH_STACK: TechCategory[] = [
     ],
   },
 ];
+
+// Education data is currently hardcoded, but will be fetched from an API in the future.
+export const EDUCATION = [
+  {
+    degree: "Master’s degree in Electronics",
+    institution: "Yanka Kupala State University of Grodno",
+    year: "2006",
+    focus: "Electronics",
+  },
+  {
+    degree: "B.Sc. Computer Science",
+    institution: "State University",
+    year: "2015",
+    focus: "Algorithms, Data Structures & Web Technologies",
+  },
+];
+
+export const COURSES = [
+  "Programming Course – GoWork (2016)",
+  "Online Training: React, TypeScript, Next.js, Node.js, Docker, Git",
+];

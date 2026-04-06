@@ -3,6 +3,7 @@ import {
   StatsBar,
   ExperienceSection,
   TechStackSection,
+  EducationSection,
 } from "@/components";
 
 export default function PortfolioPage() {
@@ -12,6 +13,7 @@ export default function PortfolioPage() {
       <StatsBar />
       <ExperienceSection />
       <TechStackSection />
+      <EducationSection />
     </>
   );
 }
