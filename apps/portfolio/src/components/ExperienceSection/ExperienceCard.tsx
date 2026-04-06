@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Building2 } from "lucide-react";
 import clsx from "clsx";
 
-import { GlassCard, TechBadge } from "./ui";
+import { GlassCard, TechBadge } from "../ui";
 
 import styles from "./ExperienceCard.module.scss";
 
