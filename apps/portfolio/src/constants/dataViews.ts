@@ -1,5 +1,6 @@
 import { Activity, GitCommit, Clock, Zap } from "lucide-react";
 
+// Quotes data is currently hardcoded, but will be fetched from an API in the future.
 export const QUOTES = [
   '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." — Martin Fowler',
   '"First, solve the problem. Then, write the code." — John Johnson',
@@ -7,6 +8,7 @@ export const QUOTES = [
   '"The best architectures emerge from self-organizing teams." — Agile Manifesto',
 ];
 
+// Stats data is currently hardcoded, but will be fetched from an API in the future.
 export const STATS = [
   { label: "Years Experience", value: "9+", icon: Clock },
   { label: "LINES OF CODE", value: "1M+", icon: GitCommit },
@@ -14,6 +16,7 @@ export const STATS = [
   { label: "Dockerized Workflow", value: "100%", icon: Activity },
 ];
 
+// Experience data is currently hardcoded, but will be fetched from an API in the future.
 export const EXPERIENCE = [
   {
     company: "Ostendi Global Sp. z o.o. (Warsaw)",
@@ -67,5 +70,132 @@ export const EXPERIENCE = [
       "Collaborated with banks and business clients",
     ],
     architecture: "",
+  },
+];
+
+// Tech stack data is currently hardcoded, but will be fetched from an API in the future.
+export interface Tech {
+  name: string;
+  level: number;
+  description: string;
+}
+
+export interface TechCategory {
+  title: string;
+  items: Tech[];
+}
+
+export const TECH_STACK: TechCategory[] = [
+  {
+    title: "Frontend",
+    items: [
+      {
+        name: "JavaScript",
+        level: 95,
+        description: "ES6+, asynchronous programming, design patterns",
+      },
+      {
+        name: "React",
+        level: 95,
+        description:
+          "Primary UI framework – hooks, suspense, server components",
+      },
+      {
+        name: "TypeScript",
+        level: 92,
+        description: "Strict typing, generics, utility types",
+      },
+      {
+        name: "Next.js",
+        level: 55,
+        description: "SSR, SSG, API routes, middleware",
+      },
+      // {
+      //   name: "Tailwind CSS",
+      //   level: 90,
+      //   description: "Utility-first CSS, design systems",
+      // },
+      {
+        name: "GraphQL",
+        level: 65,
+        description: "Apollo Client, codegen, subscriptions",
+      },
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      {
+        name: "Node.js",
+        level: 65,
+        description: " NestJS, streaming",
+      },
+      {
+        name: "PostgreSQL",
+        level: 88,
+        description: "Indexing, partitioning, query optimization",
+      },
+      {
+        name: "Postman",
+        level: 80,
+        description: "API testing, documentation",
+      },
+      {
+        name: "REST APIs",
+        level: 92,
+        description: "OpenAPI, versioning",
+        // description: "OpenAPI, versioning, HATEOAS",
+      },
+    ],
+  },
+  {
+    title: "DevOps",
+    items: [
+      {
+        name: "Docker",
+        level: 88,
+        description: "Multi-stage builds, compose, optimization",
+      },
+      {
+        name: "CI/CD",
+        level: 65,
+        description: "GitHub Actions, pipeline design, automation",
+      },
+      {
+        name: "Git",
+        level: 90,
+        description: "Version control, branching, merging",
+      },
+    ],
+  },
+  {
+    title: "Architecture",
+    items: [
+      {
+        name: "Microfrontends",
+        level: 85,
+        description: "Module federation, single-spa",
+      },
+      // {
+      //   name: "CQRS",
+      //   level: 78,
+      //   description: "Command Query Responsibility Segregation",
+      // },
+      // {
+      //   name: "Event-Driven",
+      //   level: 82,
+      //   description: "Kafka, RabbitMQ, event sourcing",
+      // },
+      {
+        name: "System Design",
+        level: 90,
+        description: "Scalability, reliability, performance",
+      },
+      // {
+      //   name: "DDD",
+      //   level: 80,
+      //   description: "Bounded contexts, aggregates, sagas",
+      // },
+    ],
   },
 ];

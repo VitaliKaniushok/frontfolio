@@ -1,4 +1,9 @@
-import { HeroSection, StatsBar, ExperienceSection } from "@/components";
+import {
+  HeroSection,
+  StatsBar,
+  ExperienceSection,
+  TechStackSection,
+} from "@/components";
 
 export default function PortfolioPage() {
   return (
@@ -6,6 +11,7 @@ export default function PortfolioPage() {
       <HeroSection />
       <StatsBar />
       <ExperienceSection />
+      <TechStackSection />
     </>
   );
 }

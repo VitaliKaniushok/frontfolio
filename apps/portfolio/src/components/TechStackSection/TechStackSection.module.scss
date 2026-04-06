@@ -1,0 +1,12 @@
+.section {
+  background-color: hsl(var(--surface) / 0.5);
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

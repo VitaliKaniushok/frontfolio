@@ -1,0 +1,21 @@
+@use "@styles/functions" as function;
+
+.card {
+  padding: 24px;
+  height: 100%;
+
+  &__title {
+    font-size: function.rem(14px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-foreground);
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
