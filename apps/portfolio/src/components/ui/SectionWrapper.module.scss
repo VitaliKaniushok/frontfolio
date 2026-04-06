@@ -1,3 +1,5 @@
+@use "@styles/functions" as function;
+
 .section {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -5,5 +7,28 @@
   @media (min-width: 768px) {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+}
+
+.title-wrapper {
+  margin-bottom: 4rem;
+}
+
+.over-title {
+  color: hsl(var(--glow));
+  font-size: function.rem(14px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: function.rem(32px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+
+  @media (min-width: 768px) {
+    font-size: function.rem(36px);
   }
 }
