@@ -23,6 +23,7 @@ const EducationSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={styles["education__card-wrapper"]}
             >
               <GlassCard className={styles.education__card}>
                 <div className={styles.education__icon}>

@@ -18,11 +18,16 @@
   flex-direction: column;
   gap: 1.5rem;
 
+  &__card-wrapper {
+    height: 100%;
+  }
+
   &__card {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
 
+    height: 100%;
     padding: 1.5rem;
   }
 

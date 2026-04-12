@@ -8,7 +8,7 @@ import profilePhoto from "../assets/profile-photo.png";
 import { GlowText, Button, ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./HeroSection.module.scss";
-
+``;
 import { QUOTES } from "../constants";
 import { SOCIAL_LINKS } from "@frontfolio/constants";
 
@@ -38,7 +38,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className={styles.label}>Frontend Developer</p>
+            <p className={styles.label}>Frontend Engineer</p>
             <h1 className={styles.title}>
               Building <GlowText>scalable</GlowText>
               <br />
