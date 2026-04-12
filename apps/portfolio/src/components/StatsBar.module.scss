@@ -40,13 +40,13 @@
   font-size: function.rem(24px);
 
   @media (min-width: 768px) {
-    font-size: function.rem(30px);
+    font-size: function.rem(27px);
   }
 }
 
 .label {
   margin-top: 4px;
-  font-size: function.rem(12px);
+  font-size: function.rem(14px);
   color: hsl(var(--muted-foreground));
   text-transform: uppercase;
   letter-spacing: 0.05em;

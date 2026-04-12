@@ -1,4 +1,4 @@
-import { Activity, GitCommit, Clock, Zap } from "lucide-react";
+import { Workflow, Blocks, Award, Palette } from "lucide-react";
 
 // Quotes data is currently hardcoded, but will be fetched from an API in the future.
 export const QUOTES = [
@@ -10,10 +10,10 @@ export const QUOTES = [
 
 // Stats data is currently hardcoded, but will be fetched from an API in the future.
 export const STATS = [
-  { label: "Years Experience", value: "9+", icon: Clock },
-  { label: "LINES OF CODE", value: "1M+", icon: GitCommit },
-  { label: "UI Components", value: "200+", icon: Zap },
-  { label: "Dockerized Workflow", value: "100%", icon: Activity },
+  { label: "Professional Experience", value: "9+", icon: Award },
+  { label: "Scalable Architecture", value: "Microfrontends", icon: Blocks },
+  { label: "UI/UI reusability", value: "Design Systems", icon: Palette },
+  { label: "Development Mindset", value: "End-to-End", icon: Workflow },
 ];
 
 // Experience data is currently hardcoded, but will be fetched from an API in the future.

@@ -9,7 +9,7 @@ import styles from "./TechStackSection.module.scss";
 
 const TechStackSection = () => {
   return (
-    <TooltipProvider>
+    <TooltipProvider delayDuration={0} skipDelayDuration={0}>
       <SectionWrapper
         id="techstack"
         className={styles.section}
