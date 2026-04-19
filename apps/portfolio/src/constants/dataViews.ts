@@ -220,3 +220,41 @@ export const COURSES = [
   "Programming Course – GoWork (2016)",
   "Online Training: React, TypeScript, Next.js, Node.js, Docker, Git",
 ];
+
+export const COMMUNICATION_LANGUAGES = [
+  {
+    nameKey: "Polish",
+    level: "fluent",
+    levelKey: "Fluent",
+    code: "PL",
+  },
+  {
+    nameKey: "English",
+    level: "b2",
+    levelKey: "B2 — Upper Intermediate",
+    code: "EN",
+  },
+  {
+    nameKey: "Belarusian",
+    level: "native",
+    levelKey: "Native",
+    code: "BE",
+  },
+  {
+    nameKey: "Russian",
+    level: "native",
+    levelKey: "Native",
+    code: "RU",
+  },
+];
+
+export const LANGUAGES_LEVEL_PERCENT: Record<string, number> = {
+  native: 100,
+  fluent: 90,
+  c2: 95,
+  c1: 85,
+  b2: 70,
+  b1: 55,
+  a2: 35,
+  a1: 20,
+};
