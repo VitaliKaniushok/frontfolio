@@ -1,0 +1,35 @@
+@use "@styles/functions" as function;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid hsl(var(--border) / 0.5);
+}
+
+.languageButton {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: function.rem(12px);
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background: transparent;
+
+  &.inactive {
+    border-color: hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+
+    &:hover {
+      color: hsl(var(--foreground));
+    }
+  }
+
+  &.active {
+    border-color: hsl(var(--gradient-start) / 0.5);
+    color: hsl(var(--glow));
+    background-color: hsl(var(--glow) / 0.1);
+  }
+}

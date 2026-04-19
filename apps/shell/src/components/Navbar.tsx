@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
 
-import { navLinks } from "../constants";
+import { NAV_LINKS } from "../constants";
 
 import { Logo } from "./Logo";
+import { LanguagePicker } from "./LanguagePicker";
 import { ContainerNarrow } from "@frontfolio/ui";
 
 import clsx from "clsx";
@@ -37,11 +38,13 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className={styles["desktop-nav"]}>
-          {navLinks.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className={styles.link}>
               {link.label}
             </a>
           ))}
+
+          <LanguagePicker variant="desktop" />
 
           {/* <button
             onClick={onToggleEngineering}
@@ -74,7 +77,7 @@ const Navbar = () => {
             className={styles["mobile-menu"]}
           >
             <ContainerNarrow className={styles["mobile-content"]}>
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -84,6 +87,7 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <LanguagePicker variant="mobile" />
             </ContainerNarrow>
           </motion.div>
         )}
