@@ -1,0 +1,116 @@
+@use "@styles/functions" as function;
+
+.section {
+  padding: function.rem(80px) 0; // Przykład dla section-spacing
+}
+
+.container {
+  max-width: 800px; // container-narrow
+  margin: 0 auto;
+  padding: 0 function.rem(20px);
+}
+
+.header {
+  margin-bottom: function.rem(64px); // mb-16
+}
+
+.overline {
+  font-size: function.rem(14px); // text-sm
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: function.rem(8px);
+  color: var(--text-glow-color); // text-glow logic
+}
+
+.title {
+  font-size: function.rem(30px); // text-3xl
+  font-weight: 700;
+  letter-spacing: -0.025em;
+
+  @media (min-width: 768px) {
+    font-size: function.rem(36px); // md:text-4xl
+  }
+}
+
+.grid {
+  display: grid;
+  gap: function.rem(24px); // gap-6
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); // md:grid-cols-2
+  }
+}
+
+.card {
+  display: block;
+  padding: function.rem(24px);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  // glass-card-hover logic here
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+
+    .cardTitle,
+    .readMore {
+      color: var(--text-glow-color);
+    }
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: function.rem(8px);
+  margin-bottom: function.rem(12px);
+}
+
+.source {
+  font-size: function.rem(12px);
+  font-weight: 500;
+  color: var(--text-glow-color);
+}
+
+.separator {
+  color: rgba(var(--muted-foreground-rgb), 0.3);
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: function.rem(4px);
+  font-size: function.rem(12px);
+  color: var(--muted-foreground);
+}
+
+.cardTitle {
+  font-size: function.rem(16px);
+  font-weight: 600;
+  margin-bottom: function.rem(8px);
+  transition: color 0.2s ease;
+}
+
+.excerpt {
+  font-size: function.rem(14px);
+  color: var(--muted-foreground);
+  line-height: 1.625;
+}
+
+.readMore {
+  margin-top: function.rem(16px);
+  display: flex;
+  align-items: center;
+  gap: function.rem(6px);
+  font-size: function.rem(12px);
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.icon {
+  width: function.rem(12px);
+  height: function.rem(12px);
+}
