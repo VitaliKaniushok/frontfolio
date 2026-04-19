@@ -4,19 +4,19 @@ packages:
 
 catalog:
   # React
-  react: "^19.0.0"
-  react-dom: "^19.0.0"
+  react: "19.2.4"
+  react-dom: "19.2.4"
   "@types/react": "^19"
   "@types/react-dom": "^19"
   # Next.js
-  next: "^15.3.3"
-  eslint-config-next: "^15.3.3"
+  next: "15.5.14"
+  eslint-config-next: "15.5.14"
   # Module Federation
-  "@module-federation/nextjs-mf": "^8.8.59"
+  "@module-federation/nextjs-mf": "8.8.62"
   # Tooling
   typescript: "^5.9.3"
   typescript-eslint: "^8.57.0"
-  eslint: "^10.0.3"
+  eslint: "^9.0.0"
   eslint-config-prettier: "^10.1.8"
   prettier: "^3.8.1"
   "@eslint/eslintrc": "^3.3.1"
