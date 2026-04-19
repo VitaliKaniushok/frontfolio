@@ -27,23 +27,6 @@
     // font-family: var(--font-mono);
     color: hsl(var(--muted-foreground));
   }
-
-  &__progressbar {
-    height: 6px;
-    background-color: hsl(var(--secondary));
-    border-radius: 999px;
-    overflow: hidden;
-  }
-
-  &__progress-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(
-      to right,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-end))
-    );
-  }
 }
 
 .tooltip-description {

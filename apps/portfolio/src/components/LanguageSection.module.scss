@@ -75,21 +75,3 @@
   color: hsl(var(--muted-foreground));
   margin-bottom: 16px;
 }
-
-.progressTrack {
-  height: 6px;
-  width: 100%;
-  border-radius: 9999px;
-  background-color: hsl(var(--secondary));
-  overflow: hidden;
-}
-
-.progressBar {
-  height: 100%;
-  border-radius: 9999px;
-  background: linear-gradient(
-    to right,
-    hsl(var(--gradient-start)),
-    hsl(var(--gradient-end))
-  );
-}

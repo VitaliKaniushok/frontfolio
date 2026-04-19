@@ -18,6 +18,7 @@
     "@frontfolio/constants": "workspace:*",
     "@frontfolio/ui": "workspace:*",
     "clsx": "catalog:",
+    "framer-motion": "catalog:",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"

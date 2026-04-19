@@ -1,6 +1,9 @@
-import { motion } from "framer-motion";
-
-import { Tooltip, TooltipContent, TooltipTrigger } from "@frontfolio/ui";
+import {
+  AnimatedProgressBar,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@frontfolio/ui";
 
 import type { Tech } from "@/constants/dataViews";
 
@@ -23,15 +26,7 @@ const TechItem = ({ tech }: TechItemProps) => {
               </span>
             )} */}
           </div>
-          <div className={styles.tech__progressbar}>
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${tech.level}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className={styles["tech__progress-fill"]}
-            />
-          </div>
+          <AnimatedProgressBar value={tech.level} />
         </div>
       </TooltipTrigger>
       <TooltipContent side="top">

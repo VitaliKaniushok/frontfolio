@@ -3,6 +3,8 @@ import { LanguagesIcon } from "lucide-react";
 
 import { SectionWrapper, GlassCard } from "./ui";
 
+import { AnimatedProgressBar } from "@frontfolio/ui";
+
 import { COMMUNICATION_LANGUAGES, LANGUAGES_LEVEL_PERCENT } from "@/constants";
 
 import styles from "./LanguageSection.module.scss";
@@ -17,7 +19,8 @@ const LanguagesSection = () => {
     >
       <div className={styles.grid}>
         {COMMUNICATION_LANGUAGES.map((lang, i) => {
-          const pct = LANGUAGES_LEVEL_PERCENT[lang.level.toLowerCase()] ?? 50;
+          const percent =
+            LANGUAGES_LEVEL_PERCENT[lang.level.toLowerCase()] ?? 50;
           return (
             <motion.div
               key={lang.code}
@@ -36,19 +39,7 @@ const LanguagesSection = () => {
                     <span className={styles.langCode}>{lang.code}</span>
                   </div>
                   <p className={styles.levelText}>{lang.levelKey}</p>
-                  <div className={styles.progressTrack}>
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${pct}%` }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.8,
-                        delay: 0.2 + i * 0.08,
-                        ease: "easeOut",
-                      }}
-                      className={styles.progressBar}
-                    />
-                  </div>
+                  <AnimatedProgressBar value={percent} />
                 </div>
               </GlassCard>
             </motion.div>
