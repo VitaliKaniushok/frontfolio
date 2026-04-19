@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "tsconfig": "./typescript/tsconfig.base.json",
   "exports": {
-    "./federation/shared": "./federation/shared.ts",
-    "./eslint/next": "./eslint/next.mjs",
+    "./federation/shared": {
+      "types": "./federation/shared.d.ts",
+      "default": "./federation/shared.ts"
+    },
+    "./eslint/next": {
+      "types": "./eslint/next.d.ts",
+      "default": "./eslint/next.mjs"
+    },
     "./prettier": "./prettier/index.mjs",
     "./typescript/base": "./typescript/tsconfig.base.json"
   },
