@@ -1,4 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
 import tseslint from "typescript-eslint";
 
 /**
@@ -8,8 +9,8 @@ import tseslint from "typescript-eslint";
  */
 export function createNextConfig(baseDirectory) {
   const compat = new FlatCompat({ baseDirectory });
-
-  return tseslint.config(
+  const tsconfigPath = path.join(baseDirectory, "tsconfig.json");
+  const configs = tseslint.config(
     ...compat.extends("next/core-web-vitals"),
     ...tseslint.configs.recommended,
     ...compat.extends("prettier"),
@@ -26,4 +27,16 @@ export function createNextConfig(baseDirectory) {
       ignores: [".next/", "node_modules/", "out/"],
     },
   );
+
+  return configs.map((config) => ({
+    ...config,
+    languageOptions: {
+      ...config.languageOptions,
+      parserOptions: {
+        ...config.languageOptions?.parserOptions,
+        project: tsconfigPath,
+        tsconfigRootDir: baseDirectory,
+      },
+    },
+  }));
 }
