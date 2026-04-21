@@ -70,11 +70,12 @@ const HeroSection = () => {
                 <ArrowDown className={styles["actions__btn-icon"]} />
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            {/* NOTE: Temporarily disabled */}
+            {/* <Button asChild variant="outline" size="lg">
               <a href={`#${SECTION_IDS.projects}`}>
                 {t("portfolio.hero.viewProjects")}
               </a>
-            </Button>
+            </Button> */}
           </motion.div>
 
           <motion.div

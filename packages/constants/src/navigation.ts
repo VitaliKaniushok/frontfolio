@@ -15,6 +15,7 @@ export const NAV_LINKS = [
   { labelKey: NAV_LABEL_KEYS.techStack, href: `#${SECTION_IDS.techStack}` },
   { labelKey: NAV_LABEL_KEYS.education, href: `#${SECTION_IDS.education}` },
   { labelKey: NAV_LABEL_KEYS.communication, href: `#${SECTION_IDS.languages}` },
-  { labelKey: NAV_LABEL_KEYS.projects, href: `#${SECTION_IDS.projects}` },
-  { labelKey: NAV_LABEL_KEYS.news, href: `#${SECTION_IDS.news}` },
+  // NOTE: Temporarily disabled
+  //   { labelKey: NAV_LABEL_KEYS.projects, href: `#${SECTION_IDS.projects}` },
+  //   { labelKey: NAV_LABEL_KEYS.news, href: `#${SECTION_IDS.news}` },
 ] as const;
