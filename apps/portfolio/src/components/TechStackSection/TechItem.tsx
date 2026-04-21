@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@frontfolio/ui";
 
-import type { Tech } from "@/constants/dataViews";
+import type { Tech } from "@/hooks";
 
 import styles from "./TechItem.module.scss";
 

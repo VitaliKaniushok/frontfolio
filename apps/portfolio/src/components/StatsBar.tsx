@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 
-import { STATS } from "../constants/";
+import { usePortfolioStats } from "../hooks";
 
 import { ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./StatsBar.module.scss";
 
 const StatsBar = () => {
+  const stats = usePortfolioStats();
+
   return (
     <section className={styles.statsBar}>
       <ContainerNarrow className={styles.container}>
         <div className={styles.grid}>
-          {STATS.map((stat, i) => (
+          {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 15 }}

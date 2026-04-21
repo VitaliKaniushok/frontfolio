@@ -2,12 +2,12 @@ import { type FC } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ChevronDown } from "lucide-react";
+import { SUPPORTED_LANGUAGES } from "@frontfolio/i18n";
+import { useTranslation } from "react-i18next";
 
 import styles from "./DesktopView.module.scss";
 
 import type { DesktopLanguagePickerViewProps } from "./types";
-
-import { LANGUAGES, LANGUAGE_LABELS } from "../../constants";
 
 export const DesktopView: FC<DesktopLanguagePickerViewProps> = ({
   onLanguageChange,
@@ -15,6 +15,8 @@ export const DesktopView: FC<DesktopLanguagePickerViewProps> = ({
   isDropdownOpen,
   selectedLanguage,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
       <button
@@ -41,7 +43,7 @@ export const DesktopView: FC<DesktopLanguagePickerViewProps> = ({
             className={styles.dropdown}
             role="listbox"
           >
-            {LANGUAGES.map((lang) => (
+            {SUPPORTED_LANGUAGES.map((lang) => (
               <button
                 key={lang}
                 type="button"
@@ -52,7 +54,7 @@ export const DesktopView: FC<DesktopLanguagePickerViewProps> = ({
                 )}
                 aria-selected={lang === selectedLanguage}
               >
-                {LANGUAGE_LABELS[lang]}
+                {t(`common.languages.${lang}`)}
                 <span className={styles.langCode}>{lang.toUpperCase()}</span>
               </button>
             ))}

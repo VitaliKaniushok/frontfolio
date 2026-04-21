@@ -1,4 +1,5 @@
 import { SOCIAL_LINKS } from "@frontfolio/constants";
+import { useTranslation } from "react-i18next";
 
 import { Logo } from "./Logo";
 import { ContainerNarrow } from "@frontfolio/ui";
@@ -6,6 +7,8 @@ import { ContainerNarrow } from "@frontfolio/ui";
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className={styles.footer}>
       <ContainerNarrow className={styles.container}>
@@ -13,7 +16,7 @@ const Footer = () => {
           <Logo />
 
           <p className={styles.copy}>
-            © {new Date().getFullYear()} All rights reserved.
+            © {new Date().getFullYear()} {t("shell.footer.rightsReserved")}
           </p>
         </div>
 

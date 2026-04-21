@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { NAV_LINKS } from "../constants";
 
@@ -17,6 +18,7 @@ import styles from "./Navbar.module.scss";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(function manageHandleScrollEvent() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -40,7 +42,7 @@ const Navbar = () => {
         <div className={styles["desktop-nav"]}>
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className={styles.link}>
-              {link.label}
+              {t(link.labelKey)}
             </a>
           ))}
 
@@ -61,7 +63,7 @@ const Navbar = () => {
         <button
           className={styles["mobile-toggle"]}
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={t("shell.nav.toggleMenu")}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -84,7 +86,7 @@ const Navbar = () => {
                   onClick={() => setMobileOpen(false)}
                   className={styles.link}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </a>
               ))}
               <LanguagePicker variant="mobile" />

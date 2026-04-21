@@ -15,13 +15,16 @@
   "dependencies": {
     "@frontfolio/config": "workspace:*",
     "@frontfolio/constants": "workspace:*",
+    "@frontfolio/i18n": "workspace:*",
     "@frontfolio/ui": "workspace:*",
     "@module-federation/nextjs-mf": "catalog:",
     "clsx": "catalog:",
     "framer-motion": "catalog:",
+    "i18next": "catalog:",
     "next": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-i18next": "catalog:"
   },
   "devDependencies": {
     "webpack": "^5.0.0"

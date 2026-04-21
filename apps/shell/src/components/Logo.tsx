@@ -1,9 +1,14 @@
 import { GlowText } from "@frontfolio/ui";
+import { useTranslation } from "react-i18next";
 
 import styles from "./Logo.module.scss";
 
-export const Logo = () => (
-  <a href="#" className={styles.logo} aria-label="Frontfolio Logo">
-    dev<GlowText>.folio</GlowText>
-  </a>
-);
+export const Logo = () => {
+  const { t } = useTranslation();
+
+  return (
+    <a href="#" className={styles.logo} aria-label={t("shell.logo.ariaLabel")}>
+      dev<GlowText>.folio</GlowText>
+    </a>
+  );
+};

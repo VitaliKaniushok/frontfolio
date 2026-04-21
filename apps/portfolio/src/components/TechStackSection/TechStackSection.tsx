@@ -1,23 +1,27 @@
 import { TooltipProvider } from "@frontfolio/ui";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper } from "../ui";
 import TechCategoryCard from "./TechCategoryCard";
 
-import { TECH_STACK } from "@/constants/dataViews";
+import { useTechStack } from "@/hooks";
 
 import styles from "./TechStackSection.module.scss";
 
 const TechStackSection = () => {
+  const { t } = useTranslation();
+  const techStack = useTechStack();
+
   return (
     <TooltipProvider delayDuration={0} skipDelayDuration={0}>
       <SectionWrapper
         id="techstack"
         className={styles.section}
-        overTitle="Skills"
-        title="Tech Stack"
+        overTitle={t("portfolio.techStack.overTitle")}
+        title={t("portfolio.techStack.title")}
       >
         <div className={styles.grid}>
-          {TECH_STACK.map((category, i) => (
+          {techStack.map((category, i) => (
             <TechCategoryCard
               key={category.title}
               category={category}

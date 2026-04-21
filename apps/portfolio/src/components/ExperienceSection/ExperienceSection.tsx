@@ -1,25 +1,32 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper } from "../ui";
 import ExperienceCard from "./ExperienceCard";
 
-import { EXPERIENCE } from "@/constants/dataViews";
+import { usePortfolioExperience } from "@/hooks";
 
 import styles from "./ExperienceSection.module.scss";
 
 const ExperienceSection = () => {
   const [expanded, setExpanded] = useState<number | null>(0);
+  const { t } = useTranslation();
+  const experienceEntries = usePortfolioExperience();
 
   return (
-    <SectionWrapper id="experience" overTitle="Career" title="Experience">
+    <SectionWrapper
+      id="experience"
+      overTitle={t("portfolio.experience.overTitle")}
+      title={t("portfolio.experience.title")}
+    >
       <div className={styles.timeline}>
         {/* Timeline line */}
         <div className={styles.timeline__line} />
 
         <div className={styles.timeline__content}>
-          {EXPERIENCE.map((experience, i) => {
+          {experienceEntries.map((experience, i) => {
             const isExpanded = expanded === i;
 
             return (

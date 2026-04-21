@@ -1,8 +1,8 @@
-import { LANGUAGES } from "../../constants";
+import type { AppLanguage } from "@frontfolio/i18n";
 import { LANGUAGE_PICKER_VARIANTS } from "./constants";
 
 export type LanguagePickerVariant = keyof typeof LANGUAGE_PICKER_VARIANTS;
-export type LanguageCode = (typeof LANGUAGES)[number];
+export type LanguageCode = AppLanguage;
 
 export interface LanguagePickerProps {
   variant: LanguagePickerVariant;

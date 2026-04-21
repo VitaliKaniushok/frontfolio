@@ -1,12 +1,20 @@
 import type { GetServerSideProps } from "next";
+import { useTranslation } from "react-i18next";
+
 import { createFederatedComponent } from "../src/components";
 
 import { MainLayout } from "../src/layouts/MainLayout";
 
+function PortfolioFallback() {
+  const { t } = useTranslation();
+
+  return <div>{t("shell.home.loadingPortfolio")}</div>;
+}
+
 const PortfolioPage = createFederatedComponent({
   scope: "frontfolio_portfolio",
   module: "./PortfolioPage",
-  fallback: <div>Loading portfolio...</div>,
+  fallback: <PortfolioFallback />,
   ssr: true,
 });
 

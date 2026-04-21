@@ -1,18 +1,23 @@
 import { useState } from "react";
+import { changeAppLanguage, normalizeAppLanguage } from "@frontfolio/i18n";
+import { useTranslation } from "react-i18next";
 
 import type { LanguageCode } from "../types";
 
-export const useLanguagePicker = (initialLanguage: LanguageCode = "pl") => {
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<LanguageCode>(initialLanguage);
+export const useLanguagePicker = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const { i18n } = useTranslation();
+
+  const selectedLanguage = normalizeAppLanguage(
+    i18n.resolvedLanguage ?? i18n.language,
+  );
 
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
 
   const selectLanguage = (language: LanguageCode) => {
-    setSelectedLanguage(language);
+    void changeAppLanguage(language);
     setDropdownOpen(false);
   };
 

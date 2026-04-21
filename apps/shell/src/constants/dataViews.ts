@@ -1,15 +1,8 @@
 export const NAV_LINKS = [
-  { label: "Experience", href: "#experience" },
-  { label: "Tech Stack", href: "#techstack" },
-  { label: "Education", href: "#education" },
-  { label: "Communication", href: "#languages" },
-  { label: "Projects", href: "#projects" },
-  { label: "News", href: "#news" },
+  { labelKey: "shell.nav.experience", href: "#experience" },
+  { labelKey: "shell.nav.techStack", href: "#techstack" },
+  { labelKey: "shell.nav.education", href: "#education" },
+  { labelKey: "shell.nav.communication", href: "#languages" },
+  { labelKey: "shell.nav.projects", href: "#projects" },
+  { labelKey: "shell.nav.news", href: "#news" },
 ];
-
-export const LANGUAGES = ["en", "pl"] as const;
-
-export const LANGUAGE_LABELS: Record<(typeof LANGUAGES)[number], string> = {
-  pl: "Polski",
-  en: "English",
-};

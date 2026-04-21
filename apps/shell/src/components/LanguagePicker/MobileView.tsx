@@ -1,19 +1,21 @@
 import { type FC } from "react";
 import clsx from "clsx";
+import { SUPPORTED_LANGUAGES } from "@frontfolio/i18n";
+import { useTranslation } from "react-i18next";
 
 import styles from "./MobileView.module.scss";
 
 import type { MobileLanguagePickerViewProps } from "./types";
 
-import { LANGUAGES, LANGUAGE_LABELS } from "../../constants";
-
 export const MobileView: FC<MobileLanguagePickerViewProps> = ({
   onLanguageChange,
   selectedLanguage,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.container}>
-      {LANGUAGES.map((lang) => (
+      {SUPPORTED_LANGUAGES.map((lang) => (
         <button
           key={lang}
           type="button"
@@ -23,7 +25,7 @@ export const MobileView: FC<MobileLanguagePickerViewProps> = ({
             [styles.inactive]: lang !== selectedLanguage,
           })}
         >
-          {LANGUAGE_LABELS[lang]}
+          {t(`common.languages.${lang}`)}
         </button>
       ))}
     </div>

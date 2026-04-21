@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
@@ -8,19 +9,20 @@ import profilePhoto from "../assets/profile-photo.png";
 import { GlowText, Button, ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./HeroSection.module.scss";
-``;
-import { QUOTES } from "../constants";
+import { usePortfolioQuotes } from "../hooks";
 import { SOCIAL_LINKS } from "@frontfolio/constants";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+  const quotes = usePortfolioQuotes();
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
+      setQuoteIndex((prev) => (prev + 1) % quotes.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [quotes.length]);
 
   return (
     <section className={styles.hero}>
@@ -38,11 +40,12 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className={styles.label}>Frontend Engineer</p>
+            <p className={styles.label}>{t("portfolio.hero.role")}</p>
             <h1 className={styles.title}>
-              Building <GlowText>scalable</GlowText>
+              {t("portfolio.hero.titlePrefix")}{" "}
+              <GlowText>{t("portfolio.hero.titleHighlight")}</GlowText>
               <br />
-              digital systems.
+              {t("portfolio.hero.titleSuffix")}
             </h1>
           </motion.div>
 
@@ -52,8 +55,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Crafting high-performance applications with modern architectures. 9+
-            years of shipping production-grade software.
+            {t("portfolio.hero.description")}
           </motion.p>
 
           <motion.div
@@ -64,12 +66,12 @@ const HeroSection = () => {
           >
             <Button asChild size="lg">
               <a href="#experience">
-                View Experience{" "}
+                {t("portfolio.hero.viewExperience")}
                 <ArrowDown className={styles["actions__btn-icon"]} />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#projects">View Projects</a>
+              <a href="#projects">{t("portfolio.hero.viewProjects")}</a>
             </Button>
           </motion.div>
 
@@ -100,7 +102,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.4 }}
                 className={styles.quote}
               >
-                {QUOTES[quoteIndex]}
+                {quotes[quoteIndex]}
               </motion.p>
             </AnimatePresence>
           </div>
@@ -118,7 +120,7 @@ const HeroSection = () => {
             <div className={styles["image-container"]}>
               <Image
                 src={profilePhoto}
-                alt="Developer portrait"
+                alt={t("portfolio.hero.portraitAlt")}
                 fill
                 className={styles.image}
                 priority

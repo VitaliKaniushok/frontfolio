@@ -1,22 +1,27 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { SectionWrapper, GlassCard } from "./ui";
-import { EDUCATION, COURSES } from "@/constants";
+import { useEducation, useCourses } from "@/hooks";
 
 import styles from "./EducationSection.module.scss";
 
 const EducationSection = () => {
+  const { t } = useTranslation();
+  const educationItems = useEducation();
+  const courses = useCourses();
+
   return (
     <SectionWrapper
       id="education"
-      title="Education"
-      overTitle="Background"
+      title={t("portfolio.education.title")}
+      overTitle={t("portfolio.education.overTitle")}
       className={styles.section}
     >
       <div className={styles.grid}>
         <div className={styles.education}>
-          {EDUCATION.map((education, i) => (
+          {educationItems.map((education, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -20 }}
@@ -48,9 +53,11 @@ const EducationSection = () => {
           transition={{ duration: 0.5 }}
         >
           <GlassCard className={styles.certifications}>
-            <h3 className={styles.certifications__title}>Courses</h3>
+            <h3 className={styles.certifications__title}>
+              {t("portfolio.education.coursesTitle")}
+            </h3>
             <div className={styles.certifications__list}>
-              {COURSES.map((certificate, i) => (
+              {courses.map((certificate, i) => (
                 <div key={i} className={styles.certifications__item}>
                   <Award />
                   <span>{certificate}</span>
