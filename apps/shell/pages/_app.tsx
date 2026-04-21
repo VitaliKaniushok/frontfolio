@@ -1,10 +1,18 @@
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { useEffect } from "react";
 import Head from "next/head";
-import i18n from "@frontfolio/i18n";
+import i18n, {
+  ensureInitialAppLanguage,
+  syncAppLanguage,
+} from "@frontfolio/i18n";
 import { I18nextProvider, useTranslation } from "react-i18next";
 
 import "../src/styles/global.scss";
+
+if (typeof window !== "undefined") {
+  ensureInitialAppLanguage();
+}
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
@@ -17,6 +25,10 @@ type AppPropsWithLayout = AppProps & {
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    void syncAppLanguage();
+  }, []);
 
   return (
     <I18nextProvider i18n={i18n}>

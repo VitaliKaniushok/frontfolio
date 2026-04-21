@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
 import { FlushedChunks, flushChunks } from "@module-federation/nextjs-mf/utils";
 import { revalidate } from "@module-federation/nextjs-mf/utils";
+import { DEFAULT_LANGUAGE } from "@frontfolio/i18n";
 
 class FederatedDocument extends Document {
   static async getInitialProps(
@@ -24,7 +25,7 @@ class FederatedDocument extends Document {
     };
 
     return (
-      <Html lang="en">
+      <Html lang={DEFAULT_LANGUAGE}>
         <Head>
           <meta charSet="UTF-8" />
           <link rel="icon" href="/favicon.ico" />
@@ -33,6 +34,8 @@ class FederatedDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
                 (function() {
+                  window.__FRONTFOLIO_INITIAL_LANGUAGE__ = '${DEFAULT_LANGUAGE}';
+                  document.documentElement.lang = '${DEFAULT_LANGUAGE}';
                   const theme = localStorage.getItem('theme') || 'dark';
                   document.documentElement.setAttribute('data-theme', theme);
                 })();

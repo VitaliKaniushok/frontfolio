@@ -10,6 +10,12 @@ export type AppLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 export const DEFAULT_LANGUAGE: AppLanguage = "en";
 export const LANGUAGE_STORAGE_KEY = "frontfolio-language";
 
+declare global {
+  interface Window {
+    __FRONTFOLIO_INITIAL_LANGUAGE__?: string;
+  }
+}
+
 const resources = {
   en: { translation: en },
   pl: { translation: pl },
@@ -26,7 +32,7 @@ export const normalizeAppLanguage = (
   return isSupportedLanguage(shortCode) ? shortCode : DEFAULT_LANGUAGE;
 };
 
-const resolveInitialLanguage = (): AppLanguage => {
+const resolvePreferredLanguage = (): AppLanguage => {
   if (typeof window === "undefined") {
     return DEFAULT_LANGUAGE;
   }
@@ -40,14 +46,27 @@ const resolveInitialLanguage = (): AppLanguage => {
   return normalizeAppLanguage(window.navigator.language);
 };
 
-const persistLanguage = (language: string) => {
+const resolveInitialLanguage = (): AppLanguage => DEFAULT_LANGUAGE;
+
+export const resolveInitialLanguageSnapshot = (): AppLanguage => {
+  if (typeof window === "undefined") {
+    return DEFAULT_LANGUAGE;
+  }
+
+  return normalizeAppLanguage(window.__FRONTFOLIO_INITIAL_LANGUAGE__);
+};
+
+const persistLanguage = (
+  language: string,
+  { persistToStorage = true }: { persistToStorage?: boolean } = {},
+) => {
   const normalizedLanguage = normalizeAppLanguage(language);
 
   if (typeof document !== "undefined") {
     document.documentElement.lang = normalizedLanguage;
   }
 
-  if (typeof window !== "undefined") {
+  if (persistToStorage && typeof window !== "undefined") {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, normalizedLanguage);
   }
 };
@@ -67,11 +86,42 @@ if (!i18n.isInitialized) {
   });
 
   i18n.on("languageChanged", persistLanguage);
-  persistLanguage(i18n.language);
+  persistLanguage(i18n.language, { persistToStorage: false });
 }
 
 export const changeAppLanguage = async (language: AppLanguage) => {
   await i18n.changeLanguage(language);
+};
+
+export const ensureInitialAppLanguage = () => {
+  const initialLanguage = resolveInitialLanguageSnapshot();
+  const activeLanguage = normalizeAppLanguage(
+    i18n.resolvedLanguage ?? i18n.language,
+  );
+
+  if (activeLanguage !== initialLanguage) {
+    void i18n.changeLanguage(initialLanguage);
+  }
+
+  return initialLanguage;
+};
+
+export const syncAppLanguage = async () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const preferredLanguage = resolvePreferredLanguage();
+  const activeLanguage = normalizeAppLanguage(
+    i18n.resolvedLanguage ?? i18n.language,
+  );
+
+  if (activeLanguage === preferredLanguage) {
+    persistLanguage(preferredLanguage);
+    return;
+  }
+
+  await i18n.changeLanguage(preferredLanguage);
 };
 
 export { i18n };

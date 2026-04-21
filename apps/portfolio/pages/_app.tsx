@@ -1,6 +1,10 @@
 import type { AppProps } from "next/app";
-import i18n from "@frontfolio/i18n";
+import i18n, { ensureInitialAppLanguage } from "@frontfolio/i18n";
 import { I18nextProvider } from "react-i18next";
+
+if (typeof window !== "undefined") {
+  ensureInitialAppLanguage();
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
