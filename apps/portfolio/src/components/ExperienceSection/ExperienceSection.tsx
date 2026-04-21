@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
+import { SECTION_IDS } from "@frontfolio/constants";
+
 import { SectionWrapper } from "../ui";
 import ExperienceCard from "./ExperienceCard";
 
@@ -17,7 +19,7 @@ const ExperienceSection = () => {
 
   return (
     <SectionWrapper
-      id="experience"
+      id={SECTION_IDS.experience}
       overTitle={t("portfolio.experience.overTitle")}
       title={t("portfolio.experience.title")}
     >

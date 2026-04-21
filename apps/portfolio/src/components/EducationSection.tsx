@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { GraduationCap, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+import { SECTION_IDS } from "@frontfolio/constants";
+
 import { SectionWrapper, GlassCard } from "./ui";
 import { useEducation, useCourses } from "@/hooks";
 
@@ -14,7 +16,7 @@ const EducationSection = () => {
 
   return (
     <SectionWrapper
-      id="education"
+      id={SECTION_IDS.education}
       title={t("portfolio.education.title")}
       overTitle={t("portfolio.education.overTitle")}
       className={styles.section}

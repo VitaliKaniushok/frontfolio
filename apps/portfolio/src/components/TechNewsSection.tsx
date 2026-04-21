@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ExternalLink, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+import { SECTION_IDS } from "@frontfolio/constants";
+
 import { useTechNewsArticles } from "@/hooks";
 
 import styles from "./TechNewsSection.module.scss";
@@ -11,7 +13,7 @@ const TechNewsSection = () => {
   const articles = useTechNewsArticles();
 
   return (
-    <section id="news" className={styles.section}>
+    <section id={SECTION_IDS.news} className={styles.section}>
       <div className={styles.container}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

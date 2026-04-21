@@ -6,11 +6,11 @@ import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
 
+import { SECTION_IDS, SOCIAL_LINKS } from "@frontfolio/constants";
 import { GlowText, Button, ContainerNarrow } from "@frontfolio/ui";
 
 import styles from "./HeroSection.module.scss";
 import { usePortfolioQuotes } from "../hooks";
-import { SOCIAL_LINKS } from "@frontfolio/constants";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -65,13 +65,15 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <Button asChild size="lg">
-              <a href="#experience">
+              <a href={`#${SECTION_IDS.experience}`}>
                 {t("portfolio.hero.viewExperience")}
                 <ArrowDown className={styles["actions__btn-icon"]} />
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#projects">{t("portfolio.hero.viewProjects")}</a>
+              <a href={`#${SECTION_IDS.projects}`}>
+                {t("portfolio.hero.viewProjects")}
+              </a>
             </Button>
           </motion.div>
 

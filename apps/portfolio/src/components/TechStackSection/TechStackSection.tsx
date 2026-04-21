@@ -1,3 +1,4 @@
+import { SECTION_IDS } from "@frontfolio/constants";
 import { TooltipProvider } from "@frontfolio/ui";
 import { useTranslation } from "react-i18next";
 
@@ -15,7 +16,7 @@ const TechStackSection = () => {
   return (
     <TooltipProvider delayDuration={0} skipDelayDuration={0}>
       <SectionWrapper
-        id="techstack"
+        id={SECTION_IDS.techStack}
         className={styles.section}
         overTitle={t("portfolio.techStack.overTitle")}
         title={t("portfolio.techStack.title")}

@@ -2,9 +2,9 @@
 @use "@styles/mixins" as mixin;
 
 .statsBar {
-  border-top: 1px solid hsl(var(--border) / 5);
-  border-bottom: 1px solid hsl(var(--border) / 5);
-  background-color: hsl(var(--surface) / 3);
+  border-top: 1px solid hsl(var(--border) / 0.5);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  background-color: hsl(var(--surface) / 0.5);
 }
 
 .container {

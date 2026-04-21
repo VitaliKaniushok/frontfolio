@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { LanguagesIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+import { SECTION_IDS } from "@frontfolio/constants";
+
 import { SectionWrapper, GlassCard } from "./ui";
 
 import { AnimatedProgressBar } from "@frontfolio/ui";
@@ -17,7 +19,7 @@ const LanguagesSection = () => {
 
   return (
     <SectionWrapper
-      id="languages"
+      id={SECTION_IDS.languages}
       title={t("portfolio.languages.title")}
       overTitle={t("portfolio.languages.overTitle")}
       className={styles.section}

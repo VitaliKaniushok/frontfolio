@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { NAV_LINKS } from "../constants";
+import { NAV_LABEL_KEYS, NAV_LINKS } from "@frontfolio/constants";
 
 import { Logo } from "./Logo";
 import { LanguagePicker } from "./LanguagePicker";
@@ -63,7 +63,7 @@ const Navbar = () => {
         <button
           className={styles["mobile-toggle"]}
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={t("shell.nav.toggleMenu")}
+          aria-label={t(NAV_LABEL_KEYS.toggleMenu)}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
