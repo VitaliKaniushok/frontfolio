@@ -1,2 +1,2 @@
 export * from "./baseUrls";
-export * from "./dataViews";
+export * from "./navbar";
