@@ -1,141 +1,183 @@
-# Frontfolio
+docker-compose.yml # Production stack
+docker-compose.dev.yml # Dev stack (with Postgres)
+pnpm-workspace.yaml # Workspace config
+turbo.json # Turborepo pipeline
 
-A modern portfolio built with a microfrontend architecture in a monorepo setup. The project showcases fullstack skills and is prepared for future expansion with a backend API and Docker-based deployment.
+# Devfolio
 
-## About The Project
+Devfolio is a modern, production-ready monorepo platform built with a microfrontend architecture. It showcases scalable fullstack engineering patterns, including cross-app sharing, strict architectural boundaries, and containerized deployment. The project is designed for maintainability, extensibility, and real-world demonstration of advanced frontend and backend integration.
 
-Frontfolio is based on:
+---
 
-- Next.js (application hosting and rendering)
-- Module Federation (host and remote split)
-- Turborepo (monorepo orchestration and pipelines)
-- TypeScript + ESLint + Prettier
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Monorepo Structure](#monorepo-structure)
+- [Applications](#applications)
+- [Shared Packages](#shared-packages)
+- [Module Federation](#module-federation)
+- [Backend API](#backend-api)
+- [Docker & Deployment](#docker--deployment)
+- [Development Workflow](#development-workflow)
+- [Code Quality & Conventions](#code-quality--conventions)
+- [Helpful Commands](#helpful-commands)
+- [License](#license)
+
+---
+
+## Project Overview
+
+**Tech Stack:**
+
+- Next.js (frontend, SSR, hosting)
+- Module Federation (`@module-federation/nextjs-mf`)
+- Turborepo (monorepo orchestration)
+- TypeScript, ESLint, Prettier
 - pnpm workspaces
+- NestJS (backend API, planned)
 
-Project goals:
+**Key Goals:**
 
-- demonstrate practical microfrontend architecture
-- keep the codebase scalable and maintainable
-- stay ready for backend integration and containerized deployment
+- Demonstrate practical, maintainable microfrontend architecture
+- Enable scalable cross-app sharing and strict boundaries
+- Support easy backend/API integration
+- Ready for containerized (Docker) deployment
 
-## Architecture
+---
 
-The project is organized as a monorepo with multiple apps and shared packages.
+## Monorepo Structure
 
-### Applications
+```
+apps/
+   shell/        # Host Next.js app (main container)
+   portfolio/    # Remote Next.js app (PortfolioWidget)
+   backend/      # NestJS backend API (planned/early)
+packages/
+   config/       # Shared config (ESLint, TypeScript, Prettier, federation)
+   constants/    # Shared constants (navigation, links)
+   contracts/    # Shared types/interfaces
+   i18n/         # Internationalization resources
+   styles/       # Shared SCSS design tokens, mixins, base styles
+   ui/           # Shared React UI components
+   utils/        # Shared utility functions
+infra/
+   docker/       # Dockerfiles for all services
+docker-compose.yml         # Production stack
+docker-compose.dev.yml     # Dev stack (with Postgres)
+pnpm-workspace.yaml        # Workspace config
+turbo.json                 # Turborepo pipeline
+```
 
-- `apps/shell` - host application (main container)
-- `apps/portfolio` - remote application exposing the portfolio widget (`PortfolioWidget`)
-- `apps/test-app` - sandbox and testing area
+---
 
-### Shared Packages
+## Applications
 
-- `packages/config` - shared configuration (ESLint, TypeScript, Prettier)
-- `packages/config/federation/shared.ts` - shared Module Federation dependencies
+- **apps/shell**: Host Next.js app, consumes remote widgets via Module Federation
+- **apps/portfolio**: Remote Next.js app, exposes `PortfolioWidget` and portfolio sections
+- **apps/backend**: (Planned) NestJS backend API for portfolio data, authentication, admin
+
+---
+
+## Shared Packages
+
+- **config**: Centralized config for linting, formatting, federation, TypeScript
+- **constants**: Navigation, section links, social links
+- **contracts**: Types/interfaces for cross-app data
+- **i18n**: Internationalization resources
+- **styles**: SCSS tokens, mixins, base styles
+- **ui**: Shared React UI components
+- **utils**: Shared utility functions
+
+---
 
 ## Module Federation
 
-Federation setup:
+- Host (`shell`) consumes remote (`portfolio`) via Module Federation
+- Shared dependencies (React, ReactDOM, etc.) are singletons, configured in `packages/config/federation/shared.ts`
+- Federation wiring is managed in each app’s `next.config.ts`
+- Remote URL is set via `PORTFOLIO_URL` (default: `http://localhost:3001`)
 
-- host (`shell`) consumes remote `portfolio`
-- remote (`portfolio`) exposes `./PortfolioWidget`
+**Federation Rules:**
 
-Key details:
+- No direct imports between host and remote apps
+- Shared code lives in `packages/*` for true cross-app reuse
+- See `.vscode/rules/` for enforced boundaries and best practices
 
-- `portfolio` dev port: `3001`
-- `shell` default dev port: `3000`
-- remote URL is configurable via the `PORTFOLIO_URL` environment variable
+---
 
-Example:
+## Backend API (Planned)
 
-- `PORTFOLIO_URL=http://localhost:3001`
+- `apps/backend`: NestJS REST API for portfolio data, authentication, admin (planned/early)
+- Database: PostgreSQL (via Docker)
+- Example env: `DATABASE_URL=postgres://postgres:postgres@postgres:5432/frontfolio`
 
-## Requirements
+---
 
-- Node.js 20+
-- pnpm 10+
+## Docker & Deployment
 
-## Quick Start
+- Each app has its own Dockerfile (`infra/docker/`)
+- `docker-compose.yml` runs the full stack: shell, portfolio, backend, postgres
+- `docker-compose.dev.yml` for local dev with Postgres
 
-### 1. Install Dependencies
-
-```bash
-pnpm install
-```
-
-### 2. Start Development Environment
-
-```bash
-pnpm dev
-```
-
-This runs the development pipeline through Turborepo for workspace applications.
-
-### 3. Run A Single Application
+**Production:**
 
 ```bash
-pnpm --filter @frontfolio/shell dev
-pnpm --filter @frontfolio/portfolio dev
+docker-compose -f docker-compose.yml up --build -d
 ```
 
-## Available Commands
-
-From the repository root:
+**Development:**
 
 ```bash
-pnpm dev
-pnpm build
-pnpm lint
-pnpm type-check
+docker-compose -f docker-compose.dev.yml up
 ```
 
-## Repository Structure
+---
 
-```text
-.
-|- apps/
-|  |- shell/
-|  |- portfolio/
-|  \- test-app/
-|- packages/
-|  \- config/
-|- package.json
-|- pnpm-workspace.yaml
-\- turbo.json
-```
+## Development Workflow
 
-## Roadmap
+1. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+2. **Start all apps (dev mode):**
+   ```bash
+   pnpm dev
+   ```
+3. **Run a single app:**
+   ```bash
+   pnpm --filter @devfolio/shell dev
+   pnpm --filter @devfolio/portfolio dev
+   pnpm --filter @devfolio/backend dev
+   ```
+4. **Lint, type-check, format:**
+   ```bash
+   pnpm lint
+   pnpm type-check
+   pnpm format
+   pnpm format:fix
+   ```
+5. **Build for production:**
+   ```bash
+   pnpm build
+   ```
 
-### Backend (Planned)
+---
 
-The project is intended to be extended with a backend layer, for example:
+## Code Quality & Conventions
 
-- REST API for portfolio data (projects, experience, contact)
-- admin panel for content management
-- authentication and endpoint protection
-- database integration (PostgreSQL)
+- Linting: ESLint
+- Formatting: Prettier
+- Type checking: TypeScript
+- All config is centralized in `packages/config`
+- Follows SOLID, microfrontend, and Module Federation best practices (see `.vscode/rules/`)
 
-### Docker (Planned)
+---
 
-Planned containerization setup:
+## Helpful Commands
 
-- separate container for `shell`
-- separate container for `portfolio`
-- backend API container
-- optional reverse proxy (Nginx)
-- single `docker-compose.yml` to run the entire stack
+See [`HELPFUL_COMMANDS.md`](HELPFUL_COMMANDS.md) for common scripts and Docker commands.
 
-## Code Quality
-
-The project includes:
-
-- linting (ESLint)
-- formatting (Prettier)
-- static type checking (TypeScript)
-
-## Author
-
-MSM Vitali
+---
 
 ## License
 
