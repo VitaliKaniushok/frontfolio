@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { SECTION_IDS } from "@frontfolio/constants";
+import { SECTION_IDS } from "@devfolio/constants";
 
 import { useTechNewsArticles } from "@/hooks";
 

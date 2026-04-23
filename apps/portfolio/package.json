@@ -1,5 +1,5 @@
 {
-  "name": "@frontfolio/portfolio",
+  "name": "@devfolio/portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "catalog:",
-    "@frontfolio/config": "workspace:*",
-    "@frontfolio/constants": "workspace:*",
-    "@frontfolio/i18n": "workspace:*",
-    "@frontfolio/ui": "workspace:*",
+    "@devfolio/config": "workspace:*",
+    "@devfolio/constants": "workspace:*",
+    "@devfolio/i18n": "workspace:*",
+    "@devfolio/ui": "workspace:*",
     "clsx": "catalog:",
     "framer-motion": "catalog:",
     "i18next": "catalog:",

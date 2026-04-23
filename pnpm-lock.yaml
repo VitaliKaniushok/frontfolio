@@ -105,7 +105,7 @@ importers:
       '@eslint/eslintrc':
         specifier: 'catalog:'
         version: 3.3.5
-      '@frontfolio/config':
+      '@devfolio/config':
         specifier: workspace:*
         version: link:packages/config
       '@types/node':
@@ -172,16 +172,16 @@ importers:
 
   apps/portfolio:
     dependencies:
-      '@frontfolio/config':
+      '@devfolio/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@frontfolio/constants':
+      '@devfolio/constants':
         specifier: workspace:*
         version: link:../../packages/constants
-      '@frontfolio/i18n':
+      '@devfolio/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
-      '@frontfolio/ui':
+      '@devfolio/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@module-federation/nextjs-mf':
@@ -215,16 +215,16 @@ importers:
 
   apps/shell:
     dependencies:
-      '@frontfolio/config':
+      '@devfolio/config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@frontfolio/constants':
+      '@devfolio/constants':
         specifier: workspace:*
         version: link:../../packages/constants
-      '@frontfolio/i18n':
+      '@devfolio/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
-      '@frontfolio/ui':
+      '@devfolio/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@module-federation/nextjs-mf':

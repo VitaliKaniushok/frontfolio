@@ -1,5 +1,5 @@
 {
-  "name": "@frontfolio/config",
+  "name": "@devfolio/config",
   "version": "1.0.0",
   "tsconfig": "./typescript/tsconfig.base.json",
   "exports": {

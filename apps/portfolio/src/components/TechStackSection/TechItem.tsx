@@ -3,7 +3,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@frontfolio/ui";
+} from "@devfolio/ui";
 
 import type { Tech } from "@/hooks";
 

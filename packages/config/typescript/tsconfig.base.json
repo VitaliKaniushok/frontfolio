@@ -16,8 +16,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@frontfolio/config/*": ["../*"],
-      "@frontfolio/styles/*": ["../*"]
+      "@devfolio/config/*": ["../*"],
+      "@devfolio/styles/*": ["../*"]
     }
   }
 }

@@ -1,8 +1,8 @@
-import { SOCIAL_LINKS } from "@frontfolio/constants";
+import { SOCIAL_LINKS } from "@devfolio/constants";
 import { useTranslation } from "react-i18next";
 
 import { Logo } from "./Logo";
-import { ContainerNarrow } from "@frontfolio/ui";
+import { ContainerNarrow } from "@devfolio/ui";
 
 import styles from "./Footer.module.scss";
 

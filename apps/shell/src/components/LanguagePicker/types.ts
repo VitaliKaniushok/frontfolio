@@ -1,4 +1,4 @@
-import type { AppLanguage } from "@frontfolio/i18n";
+import type { AppLanguage } from "@devfolio/i18n";
 import { LANGUAGE_PICKER_VARIANTS } from "./constants";
 
 export type LanguagePickerVariant = keyof typeof LANGUAGE_PICKER_VARIANTS;
@@ -8,7 +8,7 @@ export interface LanguagePickerProps {
   variant: LanguagePickerVariant;
 }
 
-interface LanguagePickerSelectionProps {
+export interface LanguagePickerSelectionProps {
   selectedLanguage: LanguageCode;
   onLanguageChange: (lang: LanguageCode) => void;
 }
@@ -17,5 +17,3 @@ export interface DesktopLanguagePickerViewProps extends LanguagePickerSelectionP
   isDropdownOpen: boolean;
   onToggleDropdown: () => void;
 }
-
-export interface MobileLanguagePickerViewProps extends LanguagePickerSelectionProps {}

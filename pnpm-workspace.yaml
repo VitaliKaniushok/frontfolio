@@ -2,38 +2,41 @@ packages:
   - "apps/*"
   - "packages/*"
 
+allowBuilds:
+  "@module-federation/nextjs-mf": true
+  '@nestjs/core': true
+  '@parcel/watcher': true
+  sharp: true
+  unrs-resolver: true
+
 catalog:
   # React
-  react: "19.2.4"
-  react-dom: "19.2.4"
-  "@types/react": "^19"
-  "@types/react-dom": "^19"
-  # Next.js
-  next: "15.5.14"
-  eslint-config-next: "15.5.14"
+  "@eslint/eslintrc": "^3.3.1"
   # Module Federation
   "@module-federation/nextjs-mf": "8.8.62"
-  # Tooling
-  typescript: "^5.9.3"
-  typescript-eslint: "^8.57.0"
-  eslint: "^9.0.0"
-  eslint-config-prettier: "^10.1.8"
-  prettier: "^3.8.1"
-  "@eslint/eslintrc": "^3.3.1"
-  turbo: "^2.8.17"
-  "@types/node": "^20.19.37"
   "@nestjs/common": "^11.1.17"
   "@nestjs/core": "^11.1.17"
   "@nestjs/platform-express": "11"
-  "lucide-react": "^0.462.0"
-  "framer-motion": "^12.38.0"
-  "clsx": "^2.1.1"
-  "i18next": "^25.6.0"
-  "react-i18next": "^15.7.4"
   "@radix-ui/react-slot": "^1.2.4"
   "@radix-ui/react-tooltip": "^1.2.8"
+  "@types/node": "^20.19.37"
+  "@types/react": "^19"
+  "@types/react-dom": "^19"
+  "clsx": "^2.1.1"
+  eslint: "^9.0.0"
+  eslint-config-next: "15.5.14"
+  eslint-config-prettier: "^10.1.8"
+  "framer-motion": "^12.38.0"
+  "i18next": "^25.6.0"
+  "lucide-react": "^0.462.0"
+  # Next.js
+  next: "15.5.14"
+  prettier: "^3.8.1"
+  react: "19.2.4"
+  react-dom: "19.2.4"
+  "react-i18next": "^15.7.4"
   "sass": "^1.98.0"
-
-allowBuilds:
-  "@module-federation/nextjs-mf": true
-  sharp: true
+  turbo: "^2.8.17"
+  # Tooling
+  typescript: "^5.9.3"
+  typescript-eslint: "^8.57.0"

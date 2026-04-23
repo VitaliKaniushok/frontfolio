@@ -1,5 +1,5 @@
 {
-  "extends": "@frontfolio/config/typescript/base",
+  "extends": "@devfolio/config/typescript/base",
   "compilerOptions": {
     "plugins": [
       {

@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
 import { FlushedChunks, flushChunks } from "@module-federation/nextjs-mf/utils";
 import { revalidate } from "@module-federation/nextjs-mf/utils";
-import { DEFAULT_LANGUAGE } from "@frontfolio/i18n";
+import { DEFAULT_LANGUAGE } from "@devfolio/i18n";
 
 class FederatedDocument extends Document {
   static async getInitialProps(
@@ -34,7 +34,7 @@ class FederatedDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
                 (function() {
-                  window.__FRONTFOLIO_INITIAL_LANGUAGE__ = '${DEFAULT_LANGUAGE}';
+                  window.__DEVFOLIO_INITIAL_LANGUAGE__ = '${DEFAULT_LANGUAGE}';
                   document.documentElement.lang = '${DEFAULT_LANGUAGE}';
                   const theme = localStorage.getItem('theme') || 'dark';
                   document.documentElement.setAttribute('data-theme', theme);

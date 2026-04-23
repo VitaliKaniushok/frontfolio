@@ -1,6 +1,6 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { createNextConfig } from "@frontfolio/config/eslint/next";
+import { createNextConfig } from "@devfolio/config/eslint/next";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { usePortfolioStats } from "../hooks";
 
-import { ContainerNarrow } from "@frontfolio/ui";
+import { ContainerNarrow } from "@devfolio/ui";
 
 import styles from "./StatsBar.module.scss";
 

@@ -1,21 +1,19 @@
 import type { NextConfig } from "next";
 import NextFederationPlugin from "@module-federation/nextjs-mf";
-import { sharedDeps } from "@frontfolio/config/federation/shared";
+import { sharedDeps } from "@devfolio/config/federation/shared";
 
 import { getRemoteEntryUrl } from "./src/utils/federation";
-import path from "path/win32";
+import path from "path";
 
 process.env.NEXT_PRIVATE_LOCAL_WEBPACK = "true"; // NOTE: flag means use webpack from my project's node_modules, not the built-in one in next.js
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
-  transpilePackages: [
-    "@frontfolio/constants",
-    "@frontfolio/i18n",
-    "@frontfolio/ui",
-  ],
-
+  transpilePackages: ["@devfolio/constants", "@devfolio/i18n", "@devfolio/ui"],
+  sassOptions: {
+    includePaths: [path.join(__dirname, "../../packages/styles/src")],
+  },
   webpack(config: any, options: any) {
     const shared = options.isServer
       ? Object.fromEntries(
@@ -30,7 +28,7 @@ const nextConfig: NextConfig = {
         name: "frontfolio_shell",
         filename: "static/chunks/remoteEntry.js",
         remotes: {
-          portfolio: `frontfolio_portfolio@${getRemoteEntryUrl("frontfolio_portfolio", options.isServer)}`,
+          portfolio: `devfolio_portfolio@${getRemoteEntryUrl("devfolio_portfolio", options.isServer)}`,
         },
         shared,
         extraOptions: {

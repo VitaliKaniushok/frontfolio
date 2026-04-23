@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: infra/docker/base.Dockerfile
       args:
-        APP_NAME: "@frontfolio/portfolio"
+        APP_NAME: "@devfolio/portfolio"
         APP_DIR: "portfolio"
     ports:
       - "3001:3000"
@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: infra/docker/base.Dockerfile
       args:
-        APP_NAME: "@frontfolio/shell"
+        APP_NAME: "@devfolio/shell"
         APP_DIR: "shell"
         PORTFOLIO_URL: http://portfolio:3000
     ports:
@@ -31,18 +31,18 @@ services:
     ports:
       - "3002:3002"
     environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/frontfolio
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/devfolio
     depends_on:
       - postgres
 
   postgres:
     image: postgres:16-alpine
-    container_name: frontfolio-postgres
+    container_name: devfolio-postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: frontfolio
+      POSTGRES_DB: devfolio
     ports:
       - "5432:5432"
     volumes:

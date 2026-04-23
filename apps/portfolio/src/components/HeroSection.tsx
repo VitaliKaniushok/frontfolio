@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import profilePhoto from "../assets/profile-photo.png";
 
-import { SECTION_IDS, SOCIAL_LINKS } from "@frontfolio/constants";
-import { GlowText, Button, ContainerNarrow } from "@frontfolio/ui";
+import { SECTION_IDS, SOCIAL_LINKS } from "@devfolio/constants";
+import { GlowText, Button, ContainerNarrow } from "@devfolio/ui";
 
 import styles from "./HeroSection.module.scss";
 import { usePortfolioQuotes } from "../hooks";

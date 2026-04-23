@@ -12,7 +12,7 @@ function PortfolioFallback() {
 }
 
 const PortfolioPage = createFederatedComponent({
-  scope: "frontfolio_portfolio",
+  scope: "devfolio_portfolio",
   module: "./PortfolioPage",
   fallback: <PortfolioFallback />,
   ssr: true,

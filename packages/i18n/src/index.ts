@@ -12,7 +12,7 @@ export const LANGUAGE_STORAGE_KEY = "frontfolio-language";
 
 declare global {
   interface Window {
-    __FRONTFOLIO_INITIAL_LANGUAGE__?: string;
+    __DEVFOLIO_INITIAL_LANGUAGE__?: string;
   }
 }
 
@@ -53,7 +53,7 @@ export const resolveInitialLanguageSnapshot = (): AppLanguage => {
     return DEFAULT_LANGUAGE;
   }
 
-  return normalizeAppLanguage(window.__FRONTFOLIO_INITIAL_LANGUAGE__);
+  return normalizeAppLanguage(window.__DEVFOLIO_INITIAL_LANGUAGE__);
 };
 
 const persistLanguage = (

@@ -5,7 +5,7 @@ import Head from "next/head";
 import i18n, {
   ensureInitialAppLanguage,
   syncAppLanguage,
-} from "@frontfolio/i18n";
+} from "@devfolio/i18n";
 import { I18nextProvider, useTranslation } from "react-i18next";
 
 import "../src/styles/global.scss";

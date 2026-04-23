@@ -2,7 +2,7 @@ import { type FC } from "react";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, ChevronDown } from "lucide-react";
-import { SUPPORTED_LANGUAGES } from "@frontfolio/i18n";
+import { SUPPORTED_LANGUAGES } from "@devfolio/i18n";
 import { useTranslation } from "react-i18next";
 
 import styles from "./DesktopView.module.scss";

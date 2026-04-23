@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN turbo prune --scope=@frontfolio/backend --docker
+RUN turbo prune --scope=@devfolio/backend --docker
 
 # ---- INSTALL ----
 FROM base AS installer
@@ -30,7 +30,7 @@ WORKDIR /app
 COPY --from=pruner /app/out/full/ .
 COPY --from=installer /app/node_modules ./node_modules
 
-RUN pnpm turbo run build --filter=@frontfolio/backend...
+RUN pnpm turbo run build --filter=@devfolio/backend...
 
 # ---- RUNNER ----
 FROM node:22.13.1-alpine AS runner

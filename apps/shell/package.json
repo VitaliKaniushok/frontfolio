@@ -1,5 +1,5 @@
 {
-  "name": "@frontfolio/shell",
+  "name": "@devfolio/shell",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,10 +13,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@frontfolio/config": "workspace:*",
-    "@frontfolio/constants": "workspace:*",
-    "@frontfolio/i18n": "workspace:*",
-    "@frontfolio/ui": "workspace:*",
+    "@devfolio/config": "workspace:*",
+    "@devfolio/constants": "workspace:*",
+    "@devfolio/i18n": "workspace:*",
+    "@devfolio/ui": "workspace:*",
     "@module-federation/nextjs-mf": "catalog:",
     "clsx": "catalog:",
     "framer-motion": "catalog:",

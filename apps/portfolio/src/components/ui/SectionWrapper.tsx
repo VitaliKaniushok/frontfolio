@@ -2,7 +2,7 @@ import { type FC, type ReactNode } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-import { ContainerNarrow } from "@frontfolio/ui";
+import { ContainerNarrow } from "@devfolio/ui";
 
 import styles from "./SectionWrapper.module.scss";
 

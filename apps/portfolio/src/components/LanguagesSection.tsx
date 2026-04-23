@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { LanguagesIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { SECTION_IDS } from "@frontfolio/constants";
+import { SECTION_IDS } from "@devfolio/constants";
 
 import { SectionWrapper, GlassCard } from "./ui";
 
-import { AnimatedProgressBar } from "@frontfolio/ui";
+import { AnimatedProgressBar } from "@devfolio/ui";
 
 import { LANGUAGES_LEVEL_PERCENT } from "@/constants";
 import { useCommunicationLanguages } from "@/hooks";

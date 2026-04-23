@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { NAV_LABEL_KEYS, NAV_LINKS } from "@frontfolio/constants";
+import { NAV_LABEL_KEYS, NAV_LINKS } from "@devfolio/constants";
 
 import { Logo } from "./Logo";
 import { LanguagePicker } from "./LanguagePicker";
-import { ContainerNarrow } from "@frontfolio/ui";
+import { ContainerNarrow } from "@devfolio/ui";
 
 import clsx from "clsx";
 

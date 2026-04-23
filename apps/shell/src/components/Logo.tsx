@@ -1,4 +1,4 @@
-import { GlowText } from "@frontfolio/ui";
+import { GlowText } from "@devfolio/ui";
 import { useTranslation } from "react-i18next";
 
 import styles from "./Logo.module.scss";

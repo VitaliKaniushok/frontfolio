@@ -1,13 +1,13 @@
 import { type FC } from "react";
 import clsx from "clsx";
-import { SUPPORTED_LANGUAGES } from "@frontfolio/i18n";
+import { SUPPORTED_LANGUAGES } from "@devfolio/i18n";
 import { useTranslation } from "react-i18next";
 
 import styles from "./MobileView.module.scss";
 
-import type { MobileLanguagePickerViewProps } from "./types";
+import type { LanguagePickerSelectionProps } from "./types";
 
-export const MobileView: FC<MobileLanguagePickerViewProps> = ({
+export const MobileView: FC<LanguagePickerSelectionProps> = ({
   onLanguageChange,
   selectedLanguage,
 }) => {

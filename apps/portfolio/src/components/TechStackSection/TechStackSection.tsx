@@ -1,5 +1,5 @@
-import { SECTION_IDS } from "@frontfolio/constants";
-import { TooltipProvider } from "@frontfolio/ui";
+import { SECTION_IDS } from "@devfolio/constants";
+import { TooltipProvider } from "@devfolio/ui";
 import { useTranslation } from "react-i18next";
 
 import { SectionWrapper } from "../ui";

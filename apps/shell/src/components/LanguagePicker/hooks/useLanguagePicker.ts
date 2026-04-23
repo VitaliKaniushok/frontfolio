@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { changeAppLanguage, normalizeAppLanguage } from "@frontfolio/i18n";
+import { changeAppLanguage, normalizeAppLanguage } from "@devfolio/i18n";
 import { useTranslation } from "react-i18next";
 
 import type { LanguageCode } from "../types";
