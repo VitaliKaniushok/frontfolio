@@ -1,19 +1,19 @@
 export const pl = {
   common: {
     languages: {
-      en: "Angielski",
+      en: "English",
       pl: "Polski",
     },
   },
   shell: {
     meta: {
-      title: "Frontfolio",
-      description: "Frontfolio - nowoczesna platforma portfolio Vitalija.",
+      title: "Devfolio",
+      description: "Devfolio - nowoczesna platforma portfolio Vitalija.",
     },
     nav: {
       experience: "Doświadczenie",
       techStack: "Stack technologiczny",
-      education: "Edukacja",
+      education: "Wykształcenie",
       communication: "Komunikacja",
       projects: "Projekty",
       news: "Aktualności",
@@ -29,7 +29,7 @@ export const pl = {
       generic: "Coś poszło nie tak",
     },
     logo: {
-      ariaLabel: "Logo Frontfolio",
+      ariaLabel: "Logo Devfolio",
     },
     theme: {
       label: "Motyw",
@@ -70,12 +70,12 @@ export const pl = {
           role: "Frontend Engineer",
           dates: "2022 - obecnie",
           achievements: [
-            "Projektowanie i rozwój funkcji platformy HR z użyciem Reacta i TypeScriptu w środowisku Agile",
-            "Refaktoryzacja legacy codebase, co przełożyło się na lepszą wydajność (około 30% szybsze ładowanie) i mniejszy dług technologiczny",
-            "Branie odpowiedzialności za decyzje architektoniczne po stronie frontendu dla nowych modułów (struktura komponentów, zarządzanie stanem)",
-            "Integracja złożonych REST API i dbanie o niezawodny przepływ danych między usługami",
-            "Prowadzenie code review i utrzymywanie standardów kodowania",
-            "Współpraca z backendem, QA i product stakeholderami przy dostarczaniu funkcjonalności end-to-end",
+            "Projektowanie i rozwój funkcjonalności platformy HR z wykorzystaniem React i TypeScript w środowisku Agile",
+            "Refaktoryzacja legacy codebase’u, co przełożyło się na poprawę wydajności (ok. 30% szybsze czasy ładowania) oraz redukcję długu technologicznego",
+            "Odpowiedzialność za decyzje architektoniczne w obszarze frontendu dla nowych modułów (struktura komponentów, zarządzanie stanem)",
+            "Integracja złożonych API REST oraz zapewnienie niezawodnego przepływu danych pomiędzy usługami",
+            "Przeprowadzanie code review oraz dbanie o utrzymanie standardów kodowania",
+            "Współpraca z zespołami backend, QA oraz interesariuszami produktowymi w celu kompleksowego dostarczania funkcjonalności (end-to-end)",
           ],
         },
         {
@@ -83,10 +83,10 @@ export const pl = {
           role: "Mid Frontend Developer",
           dates: "2020 - 2022",
           achievements: [
-            "Rozwój i utrzymanie skalowalnych aplikacji webowych dla rynku nieruchomości oraz automatyzacji sprzedaży",
-            "Integracja warstwy frontendowej z Salesforce CRM oraz zewnętrznymi API",
-            "Dostarczanie rozwiązań opartych o Veeva CRM i Veeva Vault dla klientów enterprise",
-            "Optymalizacja istniejących modułów legacy, co poprawiło stabilność i wydajność systemu",
+            "Tworzenie i utrzymywanie skalowalnych aplikacji webowych dla platform z obszaru nieruchomości oraz automatyzacji sprzedaży",
+            "Integracja warstwy frontendowej z systemem Salesforce CRM oraz zewnętrznymi API",
+            "Dostarczanie rozwiązań opartych na Veeva CRM oraz Veeva Vault dla klientów enterprise",
+            "Optymalizacja istniejących modułów legacy, prowadząca do poprawy stabilności i wydajności systemu",
           ],
         },
         {
@@ -94,9 +94,10 @@ export const pl = {
           role: "Junior Frontend Developer - Frontend Developer",
           dates: "2016 - 2020",
           achievements: [
-            "Tworzenie aplikacji webowych i interaktywnych narzędzi marketingowych dla klientów farmaceutycznych (GSK, Pfizer, Takeda, Adamed, Johnson & Johnson)",
-            "Integracja aplikacji z systemami Salesforce i Veeva CRM",
-            "Bezpośrednia współpraca z biznesem przy przekładaniu wymagań na działające funkcje",
+            "Tworzenie aplikacji webowych oraz interaktywnych narzędzi marketingowych dla klientów z branży farmaceutycznej (GSK, Pfizer, Takeda, Adamed, Johnson & Johnson)",
+            "Budowanie komponentów UI wielokrotnego użytku oraz zwiększanie spójności rozwiązań pomiędzy projektami",
+            "Integracja aplikacji z systemami Salesforce oraz Veeva CRM",
+            "Bezpośrednia współpraca z interesariuszami biznesowymi w celu przekładania wymagań na funkcjonalności",
           ],
         },
         {
@@ -104,10 +105,10 @@ export const pl = {
           role: "Electronics Engineer / Deputy Branch Manager",
           dates: "2011 - 2015",
           achievements: [
-            "Utrzymanie i serwis bankomatów oraz terminali płatniczych dla instytucji finansowych",
+            "Utrzymanie i serwisowanie bankomatów oraz terminali płatniczych dla instytucji finansowych",
             "Diagnozowanie i naprawa systemów elektronicznych zgodnie z rygorystycznymi SLA",
-            "Koordynowanie pracy zespołu technicznego (zakres liderski)",
-            "Współpraca z bankami i klientami enterprise",
+            "Koordynowanie pracy zespołu technicznego (obowiązki liderskie)",
+            "Współpraca z bankami oraz klientami enterprise w celu zapewnienia ciągłości działania usług",
           ],
         },
       ],
@@ -155,7 +156,8 @@ export const pl = {
             {
               name: "Bazy danych i API",
               level: 85,
-              description: "REST API, GraphQL, PostgreSQL (podstawy/nauka)",
+              description:
+                "REST API, GraphQL, PostgreSQL (podstawy/w trakcie nauki)",
             },
           ],
         },
@@ -166,7 +168,7 @@ export const pl = {
               name: "Mikrofrontendy",
               level: 85,
               description:
-                "Module Federation, skalowalna architektura frontendu",
+                "Module Federation, skalowalna architektura frontendowa",
             },
             {
               name: "Rozwiązania enterprise",
