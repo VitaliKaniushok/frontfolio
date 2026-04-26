@@ -95,7 +95,7 @@ turbo.json                 # Turborepo pipeline
 - Host (`shell`) consumes remote (`portfolio`) via Module Federation
 - Shared dependencies (React, ReactDOM, etc.) are singletons, configured in `packages/config/federation/shared.ts`
 - Federation wiring is managed in each app’s `next.config.ts`
-- Remote URL is set via `PORTFOLIO_URL` (default: `http://localhost:3001`)
+- Remote URL is set via `NEXT_PUBLIC_PORTFOLIO_URL`
 
 **Federation Rules:**
 
