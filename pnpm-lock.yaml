@@ -9,9 +9,6 @@ catalogs:
     '@eslint/eslintrc':
       specifier: ^3.3.1
       version: 3.3.5
-    '@module-federation/nextjs-mf':
-      specifier: 8.8.62
-      version: 8.8.62
     '@nestjs/common':
       specifier: ^11.1.17
       version: 11.1.17
@@ -21,12 +18,6 @@ catalogs:
     '@nestjs/platform-express':
       specifier: '11'
       version: 11.1.17
-    '@radix-ui/react-slot':
-      specifier: ^1.2.4
-      version: 1.2.4
-    '@radix-ui/react-tooltip':
-      specifier: ^1.2.8
-      version: 1.2.8
     '@types/node':
       specifier: ^20.19.37
       version: 20.19.37
@@ -36,9 +27,6 @@ catalogs:
     '@types/react-dom':
       specifier: ^19
       version: 19.2.3
-    clsx:
-      specifier: ^2.1.1
-      version: 2.1.1
     eslint:
       specifier: ^9.0.0
       version: 9.39.4
@@ -48,30 +36,9 @@ catalogs:
     eslint-config-prettier:
       specifier: ^10.1.8
       version: 10.1.8
-    framer-motion:
-      specifier: ^12.38.0
-      version: 12.38.0
-    i18next:
-      specifier: ^25.6.0
-      version: 25.10.10
-    lucide-react:
-      specifier: ^0.462.0
-      version: 0.462.0
-    next:
-      specifier: 15.5.14
-      version: 15.5.14
     prettier:
       specifier: ^3.8.1
       version: 3.8.1
-    react:
-      specifier: 19.2.4
-      version: 19.2.4
-    react-dom:
-      specifier: 19.2.4
-      version: 19.2.4
-    react-i18next:
-      specifier: ^15.7.4
-      version: 15.7.4
     sass:
       specifier: ^1.98.0
       version: 1.98.0
@@ -102,12 +69,12 @@ importers:
         specifier: 'catalog:'
         version: 1.98.0
     devDependencies:
-      '@eslint/eslintrc':
-        specifier: 'catalog:'
-        version: 3.3.5
       '@devfolio/config':
         specifier: workspace:*
         version: link:packages/config
+      '@eslint/eslintrc':
+        specifier: 'catalog:'
+        version: 3.3.5
       '@types/node':
         specifier: 'catalog:'
         version: 20.19.37
