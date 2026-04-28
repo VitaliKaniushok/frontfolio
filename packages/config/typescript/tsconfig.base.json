@@ -12,12 +12,21 @@
 
     "jsx": "preserve",
 
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
 
     "baseUrl": ".",
     "paths": {
       "@devfolio/config/*": ["../*"],
       "@devfolio/styles/*": ["../*"]
     }
-  }
+  },
+  "exclude": [
+    "eslint.config.mjs", 
+    "node_modules", 
+    "dist", 
+    "build",
+    ".next",
+    ".turbo",
+    ".cache"
+  ]
 }

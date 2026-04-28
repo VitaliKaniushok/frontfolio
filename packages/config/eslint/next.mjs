@@ -10,10 +10,21 @@ import tseslint from "typescript-eslint";
 export function createNextConfig(baseDirectory) {
   const compat = new FlatCompat({ baseDirectory });
   const tsconfigPath = path.join(baseDirectory, "tsconfig.json");
-  const configs = tseslint.config(
+  
+  return [
+    ...tseslint.config(
     ...compat.extends("next/core-web-vitals"),
     ...tseslint.configs.recommended,
     ...compat.extends("prettier"),
+
+    {
+      ignores: [
+        ".next/",
+        "node_modules/",
+        "out/",
+      ],
+    },
+
     {
       rules: {
         "@typescript-eslint/no-explicit-any": "warn",
@@ -23,20 +34,30 @@ export function createNextConfig(baseDirectory) {
         ],
       },
     },
-    {
-      ignores: [".next/", "node_modules/", "out/"],
-    },
-  );
 
-  return configs.map((config) => ({
-    ...config,
-    languageOptions: {
-      ...config.languageOptions,
-      parserOptions: {
-        ...config.languageOptions?.parserOptions,
-        project: tsconfigPath,
-        tsconfigRootDir: baseDirectory,
+    {
+      files: ["**/*.ts", "**/*.tsx"],
+      languageOptions: {
+        parserOptions: {
+          project: tsconfigPath,
+          tsconfigRootDir: baseDirectory,
+        },
       },
     },
-  }));
+
+    {
+      files: ["next-env.d.ts"],
+      rules: {
+        "@typescript-eslint/triple-slash-reference": "off",
+      },
+    },
+
+    {
+      files: ["next.config.ts"],
+      rules: {
+        "@typescript-eslint/no-explicit-any": "off",
+      },
+    },
+  )
+];
 }
