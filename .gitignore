@@ -9,7 +9,9 @@ build
 coverage
 .turbo
 .vscode
-.github
+.github/*
+!.github/workflows
+!.github/workflows/*
 .pnpm-store
 skills-lock.json
 HELPFUL_COMMANDS.md
