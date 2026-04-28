@@ -52,7 +52,6 @@ export const DesktopView: FC<DesktopLanguagePickerViewProps> = ({
                   styles.option,
                   lang === selectedLanguage ? styles.active : styles.inactive,
                 )}
-                aria-selected={lang === selectedLanguage}
               >
                 {t(`common.languages.${lang}`)}
                 <span className={styles.langCode}>{lang.toUpperCase()}</span>
