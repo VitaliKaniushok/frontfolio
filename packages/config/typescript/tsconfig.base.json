@@ -19,5 +19,14 @@
       "@devfolio/config/*": ["../*"],
       "@devfolio/styles/*": ["../*"]
     }
-  }
+  },
+  "exclude": [
+    "eslint.config.mjs", 
+    "node_modules", 
+    "dist", 
+    "build",
+    ".next",
+    ".turbo",
+    ".cache"
+  ]
 }

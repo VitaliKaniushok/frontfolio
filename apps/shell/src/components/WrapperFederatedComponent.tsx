@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import type { ComponentType, JSX, ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { getRemoteEntryUrl } from "../utils/federation";
 
 /* ------------------------------------------------------------------ */
@@ -18,11 +18,16 @@ export type WrapperFederatedComponentProps<
   componentProps?: P; // Props forwarded to the loaded remote component
 };
 
+type MFContainer = {
+  init: (shareScope: unknown) => Promise<void>;
+  get: (module: string) => Promise<() => { default: ComponentType<unknown> }>;
+};
+
 /* ------------------------------------------------------------------ */
 /*  Module-level cache – avoids re-creating next/dynamic wrappers      */
 /* ------------------------------------------------------------------ */
 
-const cache = new Map<string, ComponentType<any>>();
+const cache = new Map<string, ComponentType<unknown>>();
 
 /* ------------------------------------------------------------------ */
 /*  Webpack container loader (server + client)                         */
@@ -33,20 +38,22 @@ const cache = new Map<string, ComponentType<any>>();
 /*  doesn't crash – the client will hydrate the real remote.           */
 /* ------------------------------------------------------------------ */
 
-async function loadRemoteModule(
+async function loadRemoteModule<P = Record<string, unknown>>(
   scope: string,
   module: string,
-): Promise<{ default: ComponentType<any> }> {
+): Promise<{ default: ComponentType<P> }> {
   try {
     // @ts-expect-error – webpack federation runtime global
     await __webpack_init_sharing__("default");
 
     const container =
       typeof window !== "undefined"
-        ? // @ts-expect-error – dynamic global set by Module Federation
-          (window[scope] as any)
-        : // @ts-expect-error – dynamic global set by Module Federation
-          (globalThis[scope] as any);
+        ? ((window as unknown as Record<string, unknown>)[scope] as
+            | MFContainer
+            | undefined)
+        : ((globalThis as unknown as Record<string, unknown>)[scope] as
+            | MFContainer
+            | undefined);
 
     if (!container) {
       throw new Error(`Container "${scope}" not found`);
@@ -55,7 +62,7 @@ async function loadRemoteModule(
     // @ts-expect-error – webpack share scopes global
     await container.init(__webpack_share_scopes__.default);
     const factory = await container.get(module);
-    return factory();
+    return factory() as { default: ComponentType<P> };
   } catch (error) {
     if (typeof window === "undefined") {
       // SSR without server-side federation – render fallback (loader) if provided.
@@ -64,7 +71,7 @@ async function loadRemoteModule(
       // We'll handle fallback in getOrCreateDynamic, so return a special marker.
       const marker = () => null;
       Object.defineProperty(marker, "__ssr_fallback__", { value: true });
-      return { default: marker as unknown as ComponentType<any> };
+      return { default: marker as unknown as ComponentType<P> };
     }
     console.error(`Error loading remote module "${scope}::${module}":`, error);
     throw error;
@@ -90,7 +97,7 @@ async function ensureRemoteLoaded(scope: string, url: string) {
 /*  Get or create a cached next/dynamic component                      */
 /* ------------------------------------------------------------------ */
 
-function getOrCreateDynamic<P>(
+function getOrCreateDynamic<P = Record<string, unknown>>(
   scope: string,
   module: string,
   fallback?: ReactNode,
@@ -104,9 +111,13 @@ function getOrCreateDynamic<P>(
       async () => {
         await ensureRemoteLoaded(scope, getRemoteEntryUrl(scope, false));
 
-        const mod = await loadRemoteModule(scope, module);
+        const mod = await loadRemoteModule<P>(scope, module);
         // If SSR fallback marker is returned, wrap with fallback if provided
-        if (mod.default && (mod.default as any).__ssr_fallback__ && fallback) {
+        if (
+          mod.default &&
+          (mod.default as { __ssr_fallback__?: boolean }).__ssr_fallback__ &&
+          fallback
+        ) {
           // Return a component that renders fallback on server
           return { default: () => <>{fallback}</> } as {
             default: ComponentType<P>;
@@ -119,7 +130,7 @@ function getOrCreateDynamic<P>(
         loading: fallback ? () => <>{fallback}</> : undefined,
       },
     );
-    cache.set(key, DynamicComponent);
+    cache.set(key, DynamicComponent as ComponentType<unknown>);
   }
 
   return cache.get(key) as ComponentType<P>;
