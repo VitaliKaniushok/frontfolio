@@ -41,5 +41,4 @@ COPY --from=builder /app/apps/${APP_DIR}/public ./public
 
 WORKDIR /app
 
-EXPOSE 3000
 CMD ["pnpm", "start:prod"]
