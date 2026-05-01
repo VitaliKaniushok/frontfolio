@@ -1,15 +1,18 @@
 services:
   portfolio:
     image: ${DOCKERHUB_USERNAME}/devfolio-portfolio:latest
-    restart: always
+    environment:
+      NODE_ENV: production
     networks:
       - devfolio-network
+    restart: always
 
   shell:
     image: ${DOCKERHUB_USERNAME}/devfolio-shell:latest
     networks:
       - devfolio-network
     environment:
+      NODE_ENV: production
       NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
     restart: always
 
