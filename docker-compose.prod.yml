@@ -1,0 +1,45 @@
+services:
+  portfolio:
+    image: ${DOCKERHUB_USERNAME}/devfolio-portfolio:latest
+    restart: always
+
+  shell:
+    image: ${DOCKERHUB_USERNAME}/devfolio-shell:latest
+    environment:
+      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=http://vitality-apps.dev/portfolio
+    restart: always
+
+  backend:
+    image: ${DOCKERHUB_USERNAME}/devfolio-backend:latest
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/devfolio
+    depends_on:
+      - postgres
+    restart: always
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: devfolio-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devfolio
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - shell
+      - portfolio
+      - backend
+    restart: always
+
+volumes:
+  postgres_data:
