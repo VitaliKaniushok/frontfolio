@@ -2,15 +2,21 @@ services:
   portfolio:
     image: ${DOCKERHUB_USERNAME}/devfolio-portfolio:latest
     restart: always
+    networks:
+      - devfolio-network
 
   shell:
     image: ${DOCKERHUB_USERNAME}/devfolio-shell:latest
+    networks:
+      - devfolio-network
     environment:
-      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=http://vitality-apps.dev/portfolio
+      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
     restart: always
 
   backend:
     image: ${DOCKERHUB_USERNAME}/devfolio-backend:latest
+    networks:
+      - devfolio-network
     environment:
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/devfolio
     depends_on:
@@ -19,6 +25,8 @@ services:
 
   postgres:
     image: postgres:16-alpine
+    networks:
+      - devfolio-network
     container_name: devfolio-postgres
     restart: always
     environment:
@@ -34,12 +42,18 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./infra/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - shell
       - portfolio
       - backend
+    networks:
+      - devfolio-network
     restart: always
+
+networks:
+  devfolio-network:
+    driver: bridge
 
 volumes:
   postgres_data:

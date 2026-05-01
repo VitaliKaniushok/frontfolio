@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "../../packages/styles/src")],
   },
+  assetPrefix: process.env.NODE_ENV === "production" ? "/portfolio" : "",
   webpack(config: any, options: any) {
     const shared = options.isServer
       ? Object.fromEntries(
