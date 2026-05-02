@@ -36,7 +36,7 @@ const LanguagesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              <GlassCard className={styles["languages-card"]} interactive>
+              <GlassCard className={styles["languages-card"]}>
                 <div className={styles.iconWrapper}>
                   <LanguagesIcon className={styles.icon} />
                 </div>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import TechItem from "./TechItem";
 import { GlassCard } from "../ui";
 
-import type { TechCategory } from "@/hooks";
+import type { TechCategory } from "@/types";
 
 import styles from "./TechCategoryCard.module.scss";
 
