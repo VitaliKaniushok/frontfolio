@@ -16,6 +16,8 @@ COPY . .
 RUN npm install -g pnpm@10.32.1
 RUN pnpm install --frozen-lockfile --prod=false
 
+ENV NODE_ENV=production
+
 # Build only the specified app
 RUN pnpm turbo run build --filter=${APP_NAME}...
 
