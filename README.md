@@ -171,7 +171,7 @@ The CI/CD process is automated using GitHub Actions:
 3. **Run a single app:**
    ```bash
    pnpm --filter @devfolio/shell dev
-   pnpm --filter @devfolio/portfolio dev
+   pnpm --filter @devfolio/portfolio dev:portfolio
    pnpm --filter @devfolio/backend dev
    ```
 4. **Lint, type-check, format:**
