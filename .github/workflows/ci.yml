@@ -102,6 +102,7 @@ jobs:
           build-args: |
             APP_NAME=@devfolio/shell
             APP_DIR=shell
+            NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devfolio-shell:latest
       - name: Build and push portfolio image
@@ -112,6 +113,7 @@ jobs:
           build-args: |
             APP_NAME=@devfolio/portfolio
             APP_DIR=portfolio
+            NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devfolio-portfolio:latest
       - name: Build and push backend image
@@ -131,5 +133,5 @@ jobs:
             cd ~/apps/devfolio
             export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
             docker compose pull
-            docker compose up -d
+            docker compose up -d --force-recreate
             docker image prune -f
