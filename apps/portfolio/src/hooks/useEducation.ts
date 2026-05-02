@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import type { EducationEntry } from "./portfolioData.types";
+import type { EducationEntry } from "@/types";
 
 export const useEducation = (): EducationEntry[] => {
   const { t } = useTranslation();

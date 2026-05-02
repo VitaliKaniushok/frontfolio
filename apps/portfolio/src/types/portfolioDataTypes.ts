@@ -1,4 +1,12 @@
 import type { Award } from "lucide-react";
+import { PROJECT_ITEM_LINK_TYPES } from "@/constants";
+
+export type ExperienceIds =
+  | "ostendi"
+  | "wavy"
+  | "activePharma"
+  | "tusson"
+  | "personal";
 
 export interface Tech {
   name: string;
@@ -18,6 +26,7 @@ export interface Stat {
 }
 
 export interface ExperienceEntry {
+  id: ExperienceIds;
   company: string;
   role: string;
   dates: string;
@@ -45,4 +54,19 @@ export interface NewsArticle {
   date: string;
   excerpt: string;
   url: string;
+}
+
+export type ProjectItemLinkType =
+  (typeof PROJECT_ITEM_LINK_TYPES)[keyof typeof PROJECT_ITEM_LINK_TYPES];
+
+export interface ProjectItemType {
+  title: string;
+  company: string;
+  role: string;
+  tech: string[];
+  description: string;
+  keyFeatures: string[];
+  link: string;
+  status: string;
+  linkType: ProjectItemLinkType;
 }

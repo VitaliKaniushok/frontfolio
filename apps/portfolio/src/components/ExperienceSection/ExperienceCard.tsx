@@ -18,20 +18,20 @@ interface ExperienceCardProps {
   experience: Experience;
   index: number;
   expanded: boolean;
-  setExpanded: (value: number | null) => void;
+  onExpand: (value: number | null) => void;
 }
 
 const ExperienceCard = ({
   experience,
   index,
   expanded,
-  setExpanded,
+  onExpand,
 }: ExperienceCardProps) => {
   return (
     <GlassCard
       className={clsx(styles.card, expanded && styles["card--active"])}
       interactive
-      onClick={() => setExpanded(expanded ? null : index)}
+      onClick={() => onExpand(expanded ? null : index)}
     >
       <div className={styles["card__top-content"]}>
         <div className="flex-1">

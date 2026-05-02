@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import { EXPERIENCE_TECH } from "./portfolioData.constants";
-import type { ExperienceEntry } from "./portfolioData.types";
+import { EXPERIENCE_TECH } from "@/constants";
+import type { ExperienceEntry } from "@/types";
 
 export const usePortfolioExperience = (): ExperienceEntry[] => {
   const { t } = useTranslation();
@@ -9,8 +9,8 @@ export const usePortfolioExperience = (): ExperienceEntry[] => {
     returnObjects: true,
   }) as Array<Omit<ExperienceEntry, "tech">>;
 
-  return experience.map((entry, index) => ({
+  return experience.map((entry) => ({
     ...entry,
-    tech: EXPERIENCE_TECH[index] ?? [],
+    tech: EXPERIENCE_TECH[entry.id] ?? [],
   }));
 };
