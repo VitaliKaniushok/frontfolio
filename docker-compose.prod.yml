@@ -2,8 +2,8 @@ services:
   portfolio:
     image: ${DOCKERHUB_USERNAME}/devfolio-portfolio:latest
     environment:
-      NODE_ENV: production
-      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
+      - NODE_ENV=production
+      - NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
     networks:
       - devfolio-network
     restart: always
@@ -13,8 +13,8 @@ services:
     networks:
       - devfolio-network
     environment:
-      NODE_ENV: production
-      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
+      - NODE_ENV=production
+      - NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
     restart: always
 
   backend:

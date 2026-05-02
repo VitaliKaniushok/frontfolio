@@ -9,14 +9,14 @@ ARG APP_DIR
 ARG NEXT_PUBLIC_PORTFOLIO_URL
 ENV NEXT_PUBLIC_PORTFOLIO_URL=$NEXT_PUBLIC_PORTFOLIO_URL
 
-# Kopiujemy całe repo tylko do builda
+# Copy the entire repo only for the build
 COPY . .
 
-# Instalujemy wszystkie dependencies
+# Install dependencies
 RUN npm install -g pnpm@10.32.1
 RUN pnpm install --frozen-lockfile --prod=false
 
-# Build tylko wybranej aplikacji
+# Build only the specified app
 RUN pnpm turbo run build --filter=${APP_NAME}...
 
 # ---- RUNNER (ultra-lekka produkcja) ----
@@ -33,7 +33,7 @@ ARG APP_DIR
 # PNPM runtime
 RUN npm install -g pnpm@10.32.1
 
-# Copy tylko to, co jest potrzebne do uruchomienia Next.js
+# Copy only what is needed to run Next.js
 COPY --from=builder /app/apps/${APP_DIR}/.next ./.next
 COPY --from=builder /app/apps/${APP_DIR}/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules

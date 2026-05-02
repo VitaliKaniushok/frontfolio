@@ -5,7 +5,7 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "dist/**", "!.next/cache/**"],
       "inputs": ["src/**", "public/**", "next.config.js", "tsconfig.json"],
-      "env": ["NEXT_PRIVATE_LOCAL_WEBPACK"]
+      "env": ["NEXT_PRIVATE_LOCAL_WEBPACK", "NEXT_PUBLIC_PORTFOLIO_URL"]
     },
     "dev": {
       "dependsOn": ["^dev"],
