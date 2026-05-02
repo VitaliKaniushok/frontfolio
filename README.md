@@ -1,8 +1,3 @@
-docker-compose.yml # Production stack
-docker-compose.dev.yml # Dev stack (with Postgres)
-pnpm-workspace.yaml # Workspace config
-turbo.json # Turborepo pipeline
-
 # Devfolio
 
 Devfolio is a modern, production-ready monorepo platform built with a microfrontend architecture. It showcases scalable fullstack engineering patterns, including cross-app sharing, strict architectural boundaries, and containerized deployment. The project is designed for maintainability, extensibility, and real-world demonstration of advanced frontend and backend integration.
@@ -61,8 +56,9 @@ packages/
    ui/           # Shared React UI components
    utils/        # Shared utility functions
 infra/
-   docker/       # Dockerfiles for all services
-docker-compose.yml         # Production stack
+   docker/       # Docker files for all services
+docker-compose.yml         # Production stack for local inspection
+docker-compose.prod.yml    # Production stack (used in server)
 docker-compose.dev.yml     # Dev stack (with Postgres)
 pnpm-workspace.yaml        # Workspace config
 turbo.json                 # Turborepo pipeline
@@ -73,7 +69,7 @@ turbo.json                 # Turborepo pipeline
 ## Applications
 
 - **apps/shell**: Host Next.js app, consumes remote widgets via Module Federation
-- **apps/portfolio**: Remote Next.js app, exposes `PortfolioWidget` and portfolio sections
+- **apps/portfolio**: Remote Next.js app, exposes `portfolio`
 - **apps/backend**: (Planned) NestJS backend API for portfolio data, authentication, admin
 
 ---
@@ -116,8 +112,9 @@ turbo.json                 # Turborepo pipeline
 ## Docker & Deployment
 
 - Each app has its own Dockerfile (`infra/docker/`)
-- `docker-compose.yml` runs the full stack: shell, portfolio, backend, postgres
-- `docker-compose.dev.yml` for local dev with Postgres
+- `docker-compose.yml` runs the full production stack: shell, portfolio, backend, postgres
+- `docker-compose.dev.yml` for local development with Postgres
+- `docker-compose.prod.yml` – production stack with prebuilt images and environment variables (used in server)
 
 **Production:**
 
@@ -130,6 +127,34 @@ docker-compose -f docker-compose.yml up --build -d
 ```bash
 docker-compose -f docker-compose.dev.yml up
 ```
+
+### Nginx (infra/nginx/nfinx.prod.conf)
+
+- Nginx handles routing to individual services:
+
+- HTTP → HTTPS redirect
+- `/portfolio/` → portfolio app (Next.js, port 3001)
+- `/api/` → backend (NestJS, port 3002)
+- `/` → shell (Next.js, port 3000)
+- `/portfolio/_next/static/chunks/remoteEntry.js` – module federation support
+
+**Configs:**
+
+- `/infra/nginx/nginx.conf` configuration for run local
+- `/infra/nginx/nginx.prod.conf` configuration for run in server (VPS)
+
+### CI/CD (GitHub Actions)
+
+The CI/CD process is automated using GitHub Actions:
+
+- Dependency installation (`pnpm install`)
+- Linting (`pnpm lint`)
+- Type-check (`pnpm type-check`)
+- Build (`pnpm build`)
+- Building and pushing Docker images to DockerHub
+- Deploying to a VPS via SSH (docker compose pull & up)
+
+`.github/workflows/ci.yml` config CI/CD workflow
 
 ---
 
@@ -146,7 +171,7 @@ docker-compose -f docker-compose.dev.yml up
 3. **Run a single app:**
    ```bash
    pnpm --filter @devfolio/shell dev
-   pnpm --filter @devfolio/portfolio dev
+   pnpm --filter @devfolio/portfolio dev:portfolio
    pnpm --filter @devfolio/backend dev
    ```
 4. **Lint, type-check, format:**

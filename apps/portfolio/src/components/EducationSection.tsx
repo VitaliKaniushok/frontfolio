@@ -19,7 +19,6 @@ const EducationSection = () => {
       id={SECTION_IDS.education}
       title={t("portfolio.education.title")}
       overTitle={t("portfolio.education.overTitle")}
-      className={styles.section}
     >
       <div className={styles.grid}>
         <div className={styles.education}>

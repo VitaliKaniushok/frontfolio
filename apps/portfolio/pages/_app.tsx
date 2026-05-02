@@ -4,6 +4,11 @@ import { I18nextProvider } from "react-i18next";
 
 if (typeof window !== "undefined") {
   ensureInitialAppLanguage();
+  if (process.env.NEXT_PUBLIC_PORTFOLIO_DEV) {
+    import("../src/styles/global.scss");
+    const theme = localStorage.getItem("theme") || "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+  }
 }
 
 export default function App({ Component, pageProps }: AppProps) {

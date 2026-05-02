@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import type { NewsArticle } from "./portfolioData.types";
+import type { NewsArticle } from "@/types";
 
 export const useTechNewsArticles = (): NewsArticle[] => {
   const { t } = useTranslation();

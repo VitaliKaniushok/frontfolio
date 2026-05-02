@@ -4,8 +4,8 @@ packages:
 
 allowBuilds:
   "@module-federation/nextjs-mf": true
-  '@nestjs/core': true
-  '@parcel/watcher': true
+  "@nestjs/core": true
+  "@parcel/watcher": true
   sharp: true
   unrs-resolver: true
 
@@ -40,3 +40,4 @@ catalog:
   # Tooling
   typescript: "^5.9.3"
   typescript-eslint: "^8.57.0"
+  "cross-env": "^10.1.0"

@@ -4,9 +4,21 @@
   border: 1px solid hsl(var(--border) / 0.5);
   border-radius: 1rem;
 
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+
+  &:active {
+    background-color: hsl(var(--card) / 0.5) !important;
+    box-shadow: none !important;
+  }
+
   &--hover {
     transition: all 0.3s ease;
-
     cursor: pointer;
 
     &:hover {

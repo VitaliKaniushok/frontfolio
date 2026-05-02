@@ -52,7 +52,7 @@ const ExperienceSection = () => {
                   experience={experience}
                   index={i}
                   expanded={isExpanded}
-                  setExpanded={setExpanded}
+                  onExpand={setExpanded}
                 />
               </motion.div>
             );

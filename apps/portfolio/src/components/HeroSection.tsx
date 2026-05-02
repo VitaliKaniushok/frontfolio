@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
@@ -13,9 +13,17 @@ import styles from "./HeroSection.module.scss";
 import { usePortfolioQuotes } from "../hooks";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const quotes = usePortfolioQuotes();
   const [quoteIndex, setQuoteIndex] = useState(0);
+
+  const selectedLanguage = i18n.resolvedLanguage || "en";
+  const CV_BASE = `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/cv` || "/cv";
+  const linkToCV =
+    selectedLanguage === "pl"
+      ? `${CV_BASE}/Vitali_Kaniushok_CV-pl.pdf`
+      : `${CV_BASE}/Vitali_Kaniushok_CV-en.pdf`;
+  console.log("linkToCV ", linkToCV);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,12 +78,22 @@ const HeroSection = () => {
                 <ArrowDown className={styles["actions__btn-icon"]} />
               </a>
             </Button>
-            {/* NOTE: Temporarily disabled */}
-            {/* <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg">
               <a href={`#${SECTION_IDS.projects}`}>
                 {t("portfolio.hero.viewProjects")}
               </a>
-            </Button> */}
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a
+                href={linkToCV}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className={styles["actions__btn-icon"]} />
+                {t("portfolio.hero.downloadCV")}
+              </a>
+            </Button>
           </motion.div>
 
           <motion.div

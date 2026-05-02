@@ -47,6 +47,7 @@ export const pl = {
         "Tworzę wysokowydajne aplikacje oparte na nowoczesnej architekturze. Ponad 9 lat dostarczania oprogramowania produkcyjnego.",
       viewExperience: "Zobacz doświadczenie",
       viewProjects: "Zobacz projekty",
+      downloadCV: "Pobierz CV",
       portraitAlt: "Portret developera",
       quotes: [
         '"Każdy głupiec potrafi napisać kod, który zrozumie komputer. Dobry programista pisze kod, który zrozumie człowiek." — Martin Fowler',
@@ -66,6 +67,7 @@ export const pl = {
       title: "Doświadczenie",
       items: [
         {
+          id: "ostendi",
           company: "Ostendi Global Sp. z o.o. (Warszawa)",
           role: "Frontend Engineer",
           dates: "2022 - obecnie",
@@ -79,6 +81,7 @@ export const pl = {
           ],
         },
         {
+          id: "wavy",
           company: "Wavy Apps / Brightforce Sp. z o.o. (Warszawa)",
           role: "Mid Frontend Developer",
           dates: "2020 - 2022",
@@ -90,6 +93,7 @@ export const pl = {
           ],
         },
         {
+          id: "activePharma",
           company: "Active Pharma Sp. z o.o. (Warszawa)",
           role: "Junior Frontend Developer - Frontend Developer",
           dates: "2016 - 2020",
@@ -101,6 +105,7 @@ export const pl = {
           ],
         },
         {
+          id: "tusson",
           company: "Tusson, Białoruś",
           role: "Electronics Engineer / Deputy Branch Manager",
           dates: "2011 - 2015",
@@ -288,6 +293,110 @@ export const pl = {
           excerpt:
             "Przenoszenie obliczeń bliżej użytkownika dzięki edge functions i rozproszonym bazom danych.",
           url: "#",
+        },
+      ],
+    },
+    projects: {
+      overTitle: "Realizacje",
+      title: "Projekty i architektura",
+      description:
+        "Moje doświadczenie opiera się na budowie zamkniętych systemów biznesowych (CRM/HR Tech). Dla tego prezentowane projekty to systemy klasy Enterprise oraz platformy subskrypcyjne o ograniczonym dostępie. Aby zaprezentować mój warsztat programistyczny w praktyce, zapraszam do zapoznania się z kodem źródłowym mojego Portfolio, które zaprojektowałem jako pokazową architekturę typu Monorepo.",
+      items: [
+        {
+          title: "Personal Portfolio System (Open Source Showcase)",
+          company: "Osobisty projekt demonstracyjny - Devfolio",
+          role: "Lead Architect / Fullstack Developer",
+          tech: [
+            "Next.js",
+            "TypeScript",
+            "Monorepo",
+            "Microfrontends",
+            "Module Federation",
+            "pnpm",
+            "Turbopack",
+            "Docker",
+            "GitHub Actions",
+          ],
+          description:
+            "Projekt demonstracyjny prezentujący nowoczesne podejście do architektury frontendu. Skupiony na maksymalnej wydajności, skalowalności i automatyzacji procesów CI/CD.",
+          keyFeatures: [
+            "Implementacja architektury Microfrontends przy użyciu Module Federation",
+            "Zarządzanie monorepo za pomocą pnpm workspaces i Turborepo",
+            "Konteneryzacja aplikacji (Docker) oraz pełny pipeline CI/CD w GitHub Actions",
+            "Optymalizacja pod kątem Core Web Vitals i renderowania po stronie serwera (Next.js)",
+          ],
+          status: "Public",
+          link: "https://github.com/VitaliKaniushok/frontfolio",
+          linkType: "github",
+        },
+        {
+          title: "SaaS HR & Talent Management Platform",
+          company: "Ostendi Global",
+          role: "Frontend Engineer",
+          tech: [
+            "React",
+            "TypeScript",
+            "REST API",
+            "State Management",
+            "CI/CD (GitLab)",
+            "Agile",
+          ],
+          description:
+            "Rozbudowany ekosystem HR służący do diagnozy i rozwoju kompetencji pracowników. System obsługuje złożone procesy analityczne i generowanie raportów w czasie rzeczywistym.",
+          keyFeatures: [
+            "Modernizacja architektury (Refaktoryzacja legacy code), skutkująca wzrostem wydajności o 30%",
+            "Projektowanie modularnej struktury komponentów UI wielokrotnego użytku",
+            "Implementacja zaawansowanych mechanizmów zarządzania stanem aplikacji",
+            "Zapewnienie bezpieczeństwa danych zgodnie ze standardami enterprise",
+          ],
+          status: "Enterprise SaaS (Subscription required)",
+          link: "https://ostendihr.pl/",
+          linkType: "external",
+        },
+        {
+          title: "Real Estate & Sales Automation Systems",
+          company: "Wavy Apps / Brightforce",
+          role: "Mid Frontend Developer",
+          tech: [
+            "Salesforce SDK",
+            "Salesforce LWC",
+            "Veeva CRM",
+            "Apex",
+            "JavaScript",
+            "External APIs",
+          ],
+          description:
+            "Platformy webowe integrujące procesy sprzedaży nieruchomości z systemami CRM klasy Enterprise.",
+          keyFeatures: [
+            "Głęboka integracja z Salesforce CRM i API zewnętrznych dostawców",
+            "Tworzenie dedykowanych rozwiązań dla branży Farmaceutycznej (Veeva Vault/CRM)",
+            "Automatyzacja przepływu danych między frontendem a systemami CRM",
+          ],
+          status: "Commercial / Salesforce Platform",
+          link: "https://wavyapps.com/",
+          linkType: "external",
+        },
+        {
+          title: "Interactive Marketing Solutions (Pharma Sector)",
+          company: "Active Pharma",
+          role: "Junior-Frontend Developer",
+          tech: [
+            "JavaScript",
+            "HTML5/CSS3",
+            "Salesforce",
+            "Veeva",
+            "WordPress",
+          ],
+          description:
+            "Interaktywne narzędzia i aplikacje wspierające komunikację medyczną dla największych firm farmaceutycznych na świecie.",
+          keyFeatures: [
+            "Realizacja projektów dla marek: GSK, Pfizer, Takeda, J&J, Sanofi, Adamed",
+            "Budowa biblioteki komponentów UI zapewniającej spójność wizualną (Design System)",
+            "Optymalizacja assetów pod kątem płynności działania na urządzeniach mobilnych",
+          ],
+          status: "Confidential / Closed Platform",
+          link: "https://www.activepharma.pl/",
+          linkType: "external",
         },
       ],
     },
