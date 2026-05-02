@@ -5,6 +5,7 @@ import {
   TechStackSection,
   EducationSection,
   LanguagesSection,
+  ProjectsSection,
 } from "@/components";
 
 export default function PortfolioPage() {
@@ -14,8 +15,9 @@ export default function PortfolioPage() {
       <StatsBar />
       <ExperienceSection />
       <TechStackSection />
-      <EducationSection />
+      <ProjectsSection />
       <LanguagesSection />
+      <EducationSection />
     </>
   );
 }

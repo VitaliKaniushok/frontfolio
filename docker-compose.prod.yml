@@ -3,6 +3,7 @@ services:
     image: ${DOCKERHUB_USERNAME}/devfolio-portfolio:latest
     environment:
       NODE_ENV: production
+      NEXT_PUBLIC_PORTFOLIO_URL: NEXT_PUBLIC_PORTFOLIO_URL=https://vitality-apps.dev/portfolio
     networks:
       - devfolio-network
     restart: always
