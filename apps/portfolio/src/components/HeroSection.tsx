@@ -18,14 +18,15 @@ const HeroSection = () => {
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   const selectedLanguage = i18n.resolvedLanguage || "en";
+
   const CV_BASE = process.env.NEXT_PUBLIC_PORTFOLIO_URL
     ? `${process.env.NEXT_PUBLIC_PORTFOLIO_URL}/cv`
     : "/cv";
+
   const linkToCV =
     selectedLanguage === "pl"
       ? `${CV_BASE}/Vitali_Kaniushok_CV-pl.pdf`
       : `${CV_BASE}/Vitali_Kaniushok_CV-en.pdf`;
-  console.log("linkToCV ", linkToCV);
 
   useEffect(() => {
     const interval = setInterval(() => {
