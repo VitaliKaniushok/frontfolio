@@ -2,12 +2,17 @@
   position: relative;
 
   &__line {
+    display: none;
     position: absolute;
     left: 19px;
     top: 0;
     bottom: 0;
     width: 1px;
     background-color: hsl(var(--border));
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 
   &__content {
@@ -19,9 +24,14 @@
 
 .item {
   position: relative;
-  padding-left: 48px;
+  padding-left: 0;
+
+  @media (min-width: 768px) {
+    padding-left: 48px;
+  }
 
   &__dot {
+    display: none;
     position: absolute;
     left: 14px;
     top: 24px;
@@ -36,6 +46,10 @@
     &--active {
       background-color: hsl(var(--glow));
       border-color: hsl(var(--glow));
+    }
+
+    @media (min-width: 768px) {
+      display: block;
     }
   }
 }

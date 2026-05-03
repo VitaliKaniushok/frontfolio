@@ -297,7 +297,7 @@ export const en = {
       overTitle: "Realizations",
       title: "Projects and Architecture",
       description:
-        "My professional experience is built on developing closed business systems (CRM/HR Tech). Consequently, the projects showcased here are enterprise-grade systems and subscription-based platforms with restricted access. To demonstrate my practical engineering skills, I invite you to explore the source code of this portfolio, which I designed as a showcase of a modern Monorepo architecture.",
+        "My professional experience is based on building closed business systems (CRM/HR Tech). Therefore, the projects presented here are enterprise-class systems and subscription-based platforms with restricted access. To demonstrate my engineering skills in practice, I invite you to explore the source code of my Portfolio, which I designed as a showcase Monorepo architecture.",
       items: [
         {
           title: "Personal Portfolio System (Open Source Showcase)",
@@ -315,36 +315,38 @@ export const en = {
             "GitHub Actions",
           ],
           description:
-            "Demonstration project showcasing a modern approach to frontend architecture. Focused on maximum performance, scalability, and automation of CI/CD processes.",
+            "Demonstration project presenting a modern approach to frontend architecture. Focused on maximum performance, scalability, and CI/CD automation.",
           keyFeatures: [
             "Implementation of Microfrontends architecture using Module Federation",
             "Monorepo management with pnpm workspaces and Turborepo",
             "Application containerization (Docker) and full CI/CD pipeline in GitHub Actions",
-            "Optimization for Core Web Vitals and server-side rendering (Next.js)",
+            "Optimization for server-side rendering (Next.js)",
           ],
           status: "Public",
           link: "https://github.com/VitaliKaniushok/frontfolio",
           linkType: "github",
         },
         {
-          title: "SaaS HR & Talent Management Platform",
+          title: "Comprehensive SaaS HR Tech Platform",
           company: "Ostendi Global",
           role: "Frontend Engineer",
           tech: [
             "React",
             "TypeScript",
+            "Redux",
             "REST API",
             "State Management",
             "CI/CD (GitLab)",
             "Agile",
           ],
           description:
-            "A comprehensive HR ecosystem for diagnosing and developing employee competencies. The system handles complex analytical processes and real-time report generation.",
+            "Advanced HR ecosystem supporting the full employee lifecycle in an organization — from recruitment, competency diagnosis and development, to payroll analytics.",
           keyFeatures: [
-            "Modernization of architecture (Refactoring legacy code), resulting in a 30% performance increase",
+            "Modernization of architecture (Legacy code refactoring), resulting in a 30% performance increase",
             "Designing a modular structure of reusable UI components",
             "Implementation of advanced application state management mechanisms",
             "Ensuring data security in accordance with enterprise standards",
+            "Development of key platform modules such as Onboarding/Offboarding, HCM, Training Management, Absences, Time Tracking, Skills Matrix, Requests and Whistleblowers, Pay Transparency",
           ],
           status: "Enterprise SaaS (Subscription required)",
           link: "https://ostendihr.pl/",
@@ -363,18 +365,19 @@ export const en = {
             "External APIs",
           ],
           description:
-            "Web platforms integrating real estate sales processes with Enterprise-class CRM systems.",
+            "Dedicated business applications integrating sales processes with Enterprise-class systems. Solutions for the real estate and pharmaceutical industries, based on the Salesforce platform.",
           keyFeatures: [
+            "Design and implementation of complex real estate sales flows, including SAP data flow integration",
             "Deep integration with Salesforce CRM and external provider APIs",
-            "Development of dedicated solutions for the Pharmaceutical industry (Veeva Vault/CRM)",
-            "Automation of data flow between the frontend and CRM systems",
+            "Development of applications for the Interparking platform using LWC (Lightning Web Components)",
+            "Creating dedicated solutions for the Pharmaceutical industry (Veeva Vault/CRM)",
           ],
           status: "Commercial / Salesforce Platform",
           link: "https://wavyapps.com/",
           linkType: "external",
         },
         {
-          title: "Interactive Marketing Solutions (Pharma Sector)",
+          title: "Digital Pharma, CLM & Web Management",
           company: "Active Pharma",
           role: "Junior-Frontend Developer",
           tech: [
@@ -385,10 +388,11 @@ export const en = {
             "WordPress",
           ],
           description:
-            "Interactive tools and applications supporting medical communication for the world's largest pharmaceutical companies.",
+            "Interactive marketing tools and web infrastructure maintenance for leading pharmaceutical brands.",
           keyFeatures: [
             "Project delivery for brands: GSK, Pfizer, Takeda, J&J, Sanofi, Adamed",
-            "Building a UI component library ensuring visual consistency (Design System)",
+            "Comprehensive maintenance, updates, and development of websites based on the WordPress CMS",
+            "Integration of applications with Veeva Vault and Salesforce CRM ecosystems",
             "Optimization of assets for smooth performance on mobile devices",
           ],
           status: "Confidential / Closed Platform",

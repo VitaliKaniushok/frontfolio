@@ -16,6 +16,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
 
+  padding: 0 10px;
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -37,7 +39,7 @@
 
 .value {
   font-weight: 700;
-  font-size: function.rem(24px);
+  font-size: function.rem(20px);
 
   @media (min-width: 768px) {
     font-size: function.rem(27px);
@@ -46,8 +48,12 @@
 
 .label {
   margin-top: 4px;
-  font-size: function.rem(14px);
+  font-size: function.rem(12px);
   color: hsl(var(--muted-foreground));
   text-transform: uppercase;
   letter-spacing: 0.05em;
+
+  @media (min-width: 768px) {
+    font-size: function.rem(14px);
+  }
 }
