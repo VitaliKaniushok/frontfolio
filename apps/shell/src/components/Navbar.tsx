@@ -20,6 +20,16 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useTranslation();
 
+  const handleTouchStart = (
+    e: React.TouchEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setMobileOpen(false);
+    window.location.assign(href);
+  };
+
   useEffect(function manageHandleScrollEvent() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -84,6 +94,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
+                  onTouchStart={(e) => handleTouchStart(e, link.href)}
                   className={styles.link}
                 >
                   {t(link.labelKey)}
