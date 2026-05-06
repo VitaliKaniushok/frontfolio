@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = [
   { icon: Mail, href: "mailto:vitalikaniushok@gmail.com", label: "Email" },
   {
     icon: Facebook,
-    href: "https://facebook.com/vitali.kaniushok",
+    href: "https://www.facebook.com/profile.php?id=100009511723300",
     label: "Facebook",
   },
 ];
