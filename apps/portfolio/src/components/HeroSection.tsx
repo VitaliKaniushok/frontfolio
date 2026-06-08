@@ -25,8 +25,8 @@ const HeroSection = () => {
 
   const linkToCV =
     selectedLanguage === "pl"
-      ? `${CV_BASE}/Vitali_Kaniushok_CV-pl.pdf`
-      : `${CV_BASE}/Vitali_Kaniushok_CV-en.pdf`;
+      ? `${CV_BASE}/Frontend_CV-pl.pdf`
+      : `${CV_BASE}/Frontend_CV-en.pdf`;
 
   useEffect(() => {
     const interval = setInterval(() => {
