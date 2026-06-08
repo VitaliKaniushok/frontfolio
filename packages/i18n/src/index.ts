@@ -6,6 +6,7 @@ import { pl } from "./resources/pl";
 
 export const SUPPORTED_LANGUAGES = ["en", "pl"] as const;
 export type AppLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+const SUPPORTED_LANGUAGE_SET = new Set<string>(SUPPORTED_LANGUAGES);
 
 export const DEFAULT_LANGUAGE: AppLanguage = "en";
 export const LANGUAGE_STORAGE_KEY = "frontfolio-language";
@@ -22,7 +23,7 @@ const resources = {
 } as const;
 
 const isSupportedLanguage = (language: string): language is AppLanguage =>
-  SUPPORTED_LANGUAGES.includes(language as AppLanguage);
+  SUPPORTED_LANGUAGE_SET.has(language);
 
 export const normalizeAppLanguage = (
   language: string | undefined,
@@ -45,8 +46,6 @@ const resolvePreferredLanguage = (): AppLanguage => {
 
   return normalizeAppLanguage(window.navigator.language);
 };
-
-const resolveInitialLanguage = (): AppLanguage => DEFAULT_LANGUAGE;
 
 export const resolveInitialLanguageSnapshot = (): AppLanguage => {
   if (typeof window === "undefined") {
@@ -71,10 +70,13 @@ const persistLanguage = (
   }
 };
 
+const getActiveLanguage = (): AppLanguage =>
+  normalizeAppLanguage(i18n.resolvedLanguage ?? i18n.language);
+
 if (!i18n.isInitialized) {
   void i18n.use(initReactI18next).init({
     resources,
-    lng: resolveInitialLanguage(),
+    lng: DEFAULT_LANGUAGE,
     fallbackLng: DEFAULT_LANGUAGE,
     supportedLngs: SUPPORTED_LANGUAGES,
     interpolation: {
@@ -95,9 +97,7 @@ export const changeAppLanguage = async (language: AppLanguage) => {
 
 export const ensureInitialAppLanguage = () => {
   const initialLanguage = resolveInitialLanguageSnapshot();
-  const activeLanguage = normalizeAppLanguage(
-    i18n.resolvedLanguage ?? i18n.language,
-  );
+  const activeLanguage = getActiveLanguage();
 
   if (activeLanguage !== initialLanguage) {
     void i18n.changeLanguage(initialLanguage);
@@ -112,9 +112,7 @@ export const syncAppLanguage = async () => {
   }
 
   const preferredLanguage = resolvePreferredLanguage();
-  const activeLanguage = normalizeAppLanguage(
-    i18n.resolvedLanguage ?? i18n.language,
-  );
+  const activeLanguage = getActiveLanguage();
 
   if (activeLanguage === preferredLanguage) {
     persistLanguage(preferredLanguage);

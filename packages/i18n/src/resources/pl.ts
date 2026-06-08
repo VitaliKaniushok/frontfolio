@@ -239,8 +239,8 @@ export const pl = {
         },
         {
           name: "Angielski",
-          level: "b2",
-          levelLabel: "B2 - Upper Intermediate",
+          level: "b1",
+          levelLabel: "B1 - Intermediate",
           code: "EN",
         },
         {

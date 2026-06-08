@@ -35,7 +35,6 @@ class FederatedDocument extends Document {
               __html: `
                 (function() {
                   window.__DEVFOLIO_INITIAL_LANGUAGE__ = '${DEFAULT_LANGUAGE}';
-                  document.documentElement.lang = '${DEFAULT_LANGUAGE}';
                   const theme = localStorage.getItem('theme') || 'dark';
                   document.documentElement.setAttribute('data-theme', theme);
                 })();
